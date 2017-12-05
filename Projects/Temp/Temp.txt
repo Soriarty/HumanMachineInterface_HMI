@@ -1,0 +1,33 @@
+<materialDesign:Transitioner
+	AutoApplyTransitionOrigins="True"
+	SelectedIndex="0">
+	<materialDesign:TransitionerSlide>
+		<materialDesign:TransitionerSlide.ForwardWipe>
+			<materialDesign:SlideWipe Direction="Right" />
+		</materialDesign:TransitionerSlide.ForwardWipe>
+		<materialDesign:ColorZone
+			Width="300"
+			Height="300"
+			Mode="PrimaryDark">
+			<Button
+				HorizontalAlignment="Center"
+				Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+				Content="SlideWipe"
+				Style="{StaticResource MaterialDesignRaisedAccentButton}" />
+		</materialDesign:ColorZone>
+	</materialDesign:TransitionerSlide>
+	<materialDesign:TransitionerSlide>
+		<materialDesign:TransitionerSlide.BackwardWipe>
+			<materialDesign:CircleWipe />
+		</materialDesign:TransitionerSlide.BackwardWipe>
+		<materialDesign:ColorZone
+			Width="300"
+			Height="300"
+			Mode="PrimaryLight">
+			<Button
+				HorizontalAlignment="Center"
+				Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+				Content="CircleWipe" />
+		</materialDesign:ColorZone>
+	</materialDesign:TransitionerSlide>
+</materialDesign:Transitioner>
