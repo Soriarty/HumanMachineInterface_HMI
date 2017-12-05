@@ -47,14 +47,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Row="0">
-                    <Button Name="btnYellow" Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="200" Height="100" Margin="20 20 20 20"
-                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" HorizontalAlignment="Left" Click="btnYellow_Click">
-                        _Yellow
-                    </Button>
-                    <Button Name="btnRed" Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="200" Height="100" Margin="20 20 20 20"
-                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="btnRed_Click">
-                        _Red
-                    </Button>
+
                 </DockPanel>
                 <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
                     <StackPanel x:Name="NotifiSlot" Margin="10 10 10 10" >

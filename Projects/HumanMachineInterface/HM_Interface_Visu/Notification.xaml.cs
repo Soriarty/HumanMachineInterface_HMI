@@ -18,7 +18,6 @@ namespace HM_Interface_Visu
     /// </summary>
     public partial class Notification : UserControl
     {
-
         public Notification()
         {
             InitializeComponent();
@@ -28,8 +27,10 @@ namespace HM_Interface_Visu
             this.Message.Text = strMessage;
             this.ErrorColor.Fill = new SolidColorBrush(ErrorColor);
         }
-        public void OkButton_Click(object sender, RoutedEventArgs e)
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
+
         }
     }
 }

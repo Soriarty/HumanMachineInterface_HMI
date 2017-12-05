@@ -20,11 +20,10 @@ namespace HM_Interface_Visu
 
         public static Snackbar Snackbar;
         private Notification notifiDisplayer = new Notification();
-
         public MainWindow()
         {
             InitializeComponent();
-
+            notifiDisplayer.btnOK.Click += new RoutedEventHandler(clearNotification_event);
         }
         private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -52,14 +51,23 @@ namespace HM_Interface_Visu
                 {
                     await Task.Factory.StartNew(() => { Thread.Sleep(500); }).ContinueWith(t =>
                     {
+                        notifiDisplayer.Configuration("Ez egy figyelmeztető jelzés", Colors.Yellow);
 
+                        if (NotifiSlot.Children.Count == 0)
+                        {
+                            NotifiSlot.Children.Add(notifiDisplayer);
+                        }
                     }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
                 else
                 {
                     await Task.Factory.StartNew(() => { Thread.Sleep(500); }).ContinueWith(t =>
                      {
-
+                         notifiDisplayer.Configuration("Ez egy hiba jelzés", Colors.Red);
+                         if (NotifiSlot.Children.Count == 0)
+                         {
+                             NotifiSlot.Children.Add(notifiDisplayer);
+                         }
                      }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
             }
@@ -79,39 +87,9 @@ namespace HM_Interface_Visu
         {
 
         }
-
-        private void btnYellow_Click(object sender, RoutedEventArgs e)
+        public void clearNotification_event(object sender, RoutedEventArgs e)
         {
-            notifiDisplayer.Configuration("Ez egy figyelmeztető jelzés",Colors.Yellow);
-
-            if(NotifiSlot.Children.Count == 0)
-            {
-                NotifiSlot.Children.Add(notifiDisplayer);
-            }
-            else
-            {
-                NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
-                NotifiSlot.Children.Add(notifiDisplayer);
-            }
-        }
-
-        private void btnRed_Click(object sender, RoutedEventArgs e)
-        {
-            notifiDisplayer.Configuration("Ez egy hiba jelzés", Colors.Red);
-            if (NotifiSlot.Children.Count == 0)
-            {                
-                NotifiSlot.Children.Add(notifiDisplayer);
-            }
-            else
-            {
-                NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
-                NotifiSlot.Children.Add(notifiDisplayer);
-            }
-            
-        }
-        public void OkButton_Click(object sender, RoutedEventArgs e)
-        {
-            NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
+            this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
         }
     }
 }
