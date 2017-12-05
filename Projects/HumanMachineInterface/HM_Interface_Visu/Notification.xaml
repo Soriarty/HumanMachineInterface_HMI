@@ -9,7 +9,7 @@
              MinHeight="90">
 
 
-    <materialDesign:Card x:Name="BaseCard" VerticalAlignment="Stretch">
+    <materialDesign:Card x:Name="BaseCard" VerticalAlignment="Stretch" materialDesign:ShadowAssist.ShadowDepth="Depth3">
         <DockPanel>
             <Grid Height="80" DockPanel.Dock="Top">
                 <Grid.RowDefinitions>

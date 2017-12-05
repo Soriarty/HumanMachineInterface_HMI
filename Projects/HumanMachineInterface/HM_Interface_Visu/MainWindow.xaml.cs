@@ -28,7 +28,7 @@ namespace HM_Interface_Visu
             notifiDisplayer = new Notification();
             notifiDisplayer.btnOK.Click += new RoutedEventHandler(CloseNotification_ButtonClick);
             notifiDisplayer.BaseCard.GotTouchCapture += new EventHandler<TouchEventArgs>(CloseNotification_CardTouch);
-            notifiDisplayer.BaseCard.MouseLeftButtonDown += new MouseButtonEventHandler(CloseNotification_CardClick);
+            notifiDisplayer.BaseCard.MouseLeftButtonUp += new MouseButtonEventHandler(CloseNotification_CardClick);
         }
         #region Methods
         private void CloseNotification()
@@ -49,7 +49,7 @@ namespace HM_Interface_Visu
 
                 if (LoginDialog.User.Text == "admin" && LoginDialog.Password.Password == "100")
                 {
-                    notifiDisplayer.Configuration("Sikeres bejelentkezés", Colors.Yellow, true);
+                    notifiDisplayer.Configuration("Sikeres bejelentkezés", Colors.Yellow, false);
                     if (NotifiSlot.Children.Count == 0)
                     {
                         NotifiSlot.Children.Add(notifiDisplayer);
@@ -65,19 +65,19 @@ namespace HM_Interface_Visu
                 }
                 else
                 {
-                    notifiDisplayer.Configuration("Sikertelen bejelentkezés, helytelen felhasználónév vagy jelszó!", Colors.Red, false);
+                    notifiDisplayer.Configuration("Sikertelen bejelentkezés, helytelen felhasználónév vagy jelszó!", Colors.Red, true);
                     if (NotifiSlot.Children.Count == 0)
                     {
                         NotifiSlot.Children.Add(notifiDisplayer);
                     }
 
-                    await Task.Factory.StartNew(() => { Thread.Sleep(5000); }).ContinueWith(t =>
-                     {
-                         if (NotifiSlot.Children.Count != 0)
-                         {
-                             this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
-                         }
-                     }, TaskScheduler.FromCurrentSynchronizationContext());
+                    //await Task.Factory.StartNew(() => { Thread.Sleep(5000); }).ContinueWith(t =>
+                    // {
+                    //     if (NotifiSlot.Children.Count != 0)
+                    //     {
+                    //         this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
+                    //     }
+                    // }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
             }
 
