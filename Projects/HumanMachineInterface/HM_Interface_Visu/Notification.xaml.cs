@@ -18,19 +18,18 @@ namespace HM_Interface_Visu
     /// </summary>
     public partial class Notification : UserControl
     {
+        public bool btnVisible;
         public Notification()
         {
             InitializeComponent();
         }
-        public void Configuration(string strMessage, Color ErrorColor)
+        public void Configuration(string strMessage, Color ErrorColor, bool buttonVisible)
         {
-            this.Message.Text = strMessage;
+            btnVisible = buttonVisible;
+            if (btnVisible) { btnOK.Opacity = 100; }
+            else { btnOK.Opacity = 0; }            
+            Message.Text = strMessage;
             this.ErrorColor.Fill = new SolidColorBrush(ErrorColor);
-        }
-
-        private void OkButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

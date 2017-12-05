@@ -9,7 +9,7 @@
              MinHeight="90">
 
 
-    <materialDesign:Card VerticalAlignment="Stretch">
+    <materialDesign:Card x:Name="BaseCard" VerticalAlignment="Stretch">
         <DockPanel>
             <Grid Height="80" DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
@@ -21,7 +21,7 @@
                 </Grid.ColumnDefinitions>
                 <materialDesign:PackIcon Grid.Column="0" Grid.Row="0"  Kind="AlertOutline" Height="65" Width="65" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                 <DockPanel Grid.Column="1" Grid.Row="0" >
-                    <Button x:Name="btnOK"  Style="{StaticResource MaterialDesignToolForegroundButton}" Content="OK" HorizontalAlignment="Right" Width="100" Height="65" VerticalAlignment="Center" Margin="0 0 15 0" DockPanel.Dock="Right" ToolTip="Hiba nyugtázása" Click="OkButton_Click" >
+                    <Button x:Name="btnOK"  Style="{StaticResource MaterialDesignToolForegroundButton}" Content="OK" HorizontalAlignment="Right" Width="100" Height="65" VerticalAlignment="Center" Margin="0 0 15 0" DockPanel.Dock="Right" ToolTip="Hiba nyugtázása">
                     </Button>
                     <TextBlock Name="Message" Text="This is the notification message" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="22"/>
                 </DockPanel>

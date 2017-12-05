@@ -19,25 +19,25 @@ namespace HM_Interface_Visu
     {
 
         public static Snackbar Snackbar;
-        private Notification notifiDisplayer = new Notification();
+        private Notification notifiDisplayer;
+
         public MainWindow()
         {
             InitializeComponent();
-            notifiDisplayer.btnOK.Click += new RoutedEventHandler(clearNotification_event);
+            WindowState = WindowState.Maximized;
+            notifiDisplayer = new Notification();
+            notifiDisplayer.btnOK.Click += new RoutedEventHandler(CloseNotification_ButtonClick);
+            notifiDisplayer.BaseCard.GotTouchCapture += new EventHandler<TouchEventArgs>(CloseNotification_CardTouch);
+            notifiDisplayer.BaseCard.MouseLeftButtonDown += new MouseButtonEventHandler(CloseNotification_CardClick);
         }
-        private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        #region Methods
+        private void CloseNotification()
         {
-            //until we had a StaysOpen glag to Drawer, this will help with scroll bars
-            var dependencyObject = Mouse.Captured as DependencyObject;
-            while (dependencyObject != null)
-            {
-                if (dependencyObject is ScrollBar) return;
-                dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
-            }
-
-            MenuToggleButton.IsChecked = false;
+            this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
         }
+        #endregion
 
+        #region Events
         private async void MenuPopupButton_OnClick(object sender, RoutedEventArgs e)
         {
             var LoginDialog = new LoginDialogBox();
@@ -49,48 +49,66 @@ namespace HM_Interface_Visu
 
                 if (LoginDialog.User.Text == "admin" && LoginDialog.Password.Password == "100")
                 {
-                    await Task.Factory.StartNew(() => { Thread.Sleep(500); }).ContinueWith(t =>
+                    notifiDisplayer.Configuration("Sikeres bejelentkezés", Colors.Yellow, true);
+                    if (NotifiSlot.Children.Count == 0)
                     {
-                        notifiDisplayer.Configuration("Ez egy figyelmeztető jelzés", Colors.Yellow);
-
-                        if (NotifiSlot.Children.Count == 0)
+                        NotifiSlot.Children.Add(notifiDisplayer);
+                    }
+                    await Task.Factory.StartNew(() => { Thread.Sleep(5000); }).ContinueWith(t =>
+                    {
+                        if (NotifiSlot.Children.Count != 0)
                         {
-                            NotifiSlot.Children.Add(notifiDisplayer);
+                            this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
                         }
+                        
                     }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
                 else
                 {
-                    await Task.Factory.StartNew(() => { Thread.Sleep(500); }).ContinueWith(t =>
+                    notifiDisplayer.Configuration("Sikertelen bejelentkezés, helytelen felhasználónév vagy jelszó!", Colors.Red, false);
+                    if (NotifiSlot.Children.Count == 0)
+                    {
+                        NotifiSlot.Children.Add(notifiDisplayer);
+                    }
+
+                    await Task.Factory.StartNew(() => { Thread.Sleep(5000); }).ContinueWith(t =>
                      {
-                         notifiDisplayer.Configuration("Ez egy hiba jelzés", Colors.Red);
-                         if (NotifiSlot.Children.Count == 0)
+                         if (NotifiSlot.Children.Count != 0)
                          {
-                             NotifiSlot.Children.Add(notifiDisplayer);
+                             this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
                          }
                      }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
             }
 
         }
+        
         private void SnackBarButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Maximized;
+            
         }
-
         private void MenuToggleButton_Checked(object sender, RoutedEventArgs e)
         {
 
         }
-        public void clearNotification_event(object sender, RoutedEventArgs e)
+        private void CloseNotification_ButtonClick(object sender, RoutedEventArgs e)
         {
-            this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
+            if (notifiDisplayer.btnOK.Opacity == 100) { CloseNotification(); }
+            
         }
+        private void CloseNotification_CardTouch(object sender, TouchEventArgs e)
+        {
+            if (notifiDisplayer.btnOK.Opacity == 0) { CloseNotification(); }
+        }
+        private void CloseNotification_CardClick(object sender, MouseButtonEventArgs e)
+        {
+            if (notifiDisplayer.btnOK.Opacity == 0) { CloseNotification(); }
+        }
+        #endregion
     }
 }
 
