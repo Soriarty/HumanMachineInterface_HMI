@@ -1,0 +1,32 @@
+﻿<Window x:Class="ADS_Communication_Test_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADS_Communication_Test_App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="595" Width="660" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Name ="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="10,141,0,10" VerticalAlignment="Bottom" Width="180" Height="70" Click="btnConnect_Click" HorizontalContentAlignment="Center"/>
+        <Button x:Name ="btnDisconnect" Content="Disconnect" HorizontalAlignment="Left" Margin="210,0,10,10" VerticalAlignment="Bottom" Width="180" Height="70" Click="btnDisconnect_Click" HorizontalContentAlignment="Center"/>
+        <ProgressBar Name="pbProgress" Height="35" Margin="10,15,0,0" VerticalAlignment="Top" Width="630" HorizontalAlignment="Left"/>
+        <Label Name="lbStatus" Content="1" Margin="110,20,85,0" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ListBox Name="lblist"  Height="385" Margin="10,0,10,100" VerticalAlignment="Bottom" VerticalContentAlignment="Top" HorizontalAlignment="Left" Width="382"/>
+
+        <TextBox Name="tbSpeedStep" Text="" Height="35" Margin="414,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Content="SpeedStep" HorizontalAlignment="Left" Margin="549,308,0,0" VerticalAlignment="Top" Height="35" Width="94" VerticalContentAlignment="Center"/>
+        <TextBox Name="tbSpeed" Height="35" Margin="414,349,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Content="Speed" HorizontalAlignment="Left" Margin="549,349,0,0" VerticalAlignment="Top" Height="35" Width="94" VerticalContentAlignment="Center"/>
+        <TextBox Name="tbMaxCount" Height="35" Margin="414,389,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Content="MaxCount" HorizontalAlignment="Left" Margin="549,389,0,0" VerticalAlignment="Top" Height="35" Width="94" VerticalContentAlignment="Center"/>
+        <TextBox Name="tbIncrement" Height="35" Margin="414,429,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Content="Increment" HorizontalAlignment="Left" Margin="549,429,0,0" VerticalAlignment="Top" Height="35" Width="94" VerticalContentAlignment="Center"/>
+        <Button x:Name ="btnSetParameter" Content="Set Parameter" HorizontalAlignment="Left" Margin="410,0,0,10" VerticalAlignment="Bottom" Width="230" Height="70" Click="btnSetParameter_Click" HorizontalContentAlignment="Center" IsEnabled="False"/>
+        <Button x:Name ="btnReadParameter" Content="Read Parameter" HorizontalAlignment="Left" Margin="410,0,0,415" VerticalAlignment="Bottom" Width="230" Height="70" Click="btnReadParameter_Click" HorizontalContentAlignment="Center" IsEnabled="False"/>
+        <Rectangle Name="colorBit" Fill="#FFF4F4F5"  HorizontalAlignment="Left" Height="65" Margin="410,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="230" MouseLeftButtonDown="colorBit_MouseLeftButtonDown"/>
+
+    </Grid>
+</Window>

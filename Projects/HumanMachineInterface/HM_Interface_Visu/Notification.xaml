@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="HM_Interface_Visu.Notification"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"             
+             mc:Ignorable="d"
+             d:DesignHeight="90" d:DesignWidth="600"
+             MinHeight="90">
+
+
+    <materialDesign:Card VerticalAlignment="Stretch">
+        <DockPanel>
+            <Grid Height="80" DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <materialDesign:PackIcon Grid.Column="0" Grid.Row="0"  Kind="AlertOutline" Height="65" Width="65" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <DockPanel Grid.Column="1" Grid.Row="0" >
+                    <Button x:Name="btnOK"  Style="{StaticResource MaterialDesignToolForegroundButton}" Content="OK" HorizontalAlignment="Right" Width="100" Height="65" VerticalAlignment="Center" Margin="0 0 15 0" DockPanel.Dock="Right" ToolTip="Hiba nyugtázása" Click="OkButton_Click" >
+                    </Button>
+                    <TextBlock Name="Message" Text="This is the notification message" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="22"/>
+                </DockPanel>
+            </Grid>
+            <Rectangle Name="ErrorColor" Height="10" Fill="Red" DockPanel.Dock="Bottom"></Rectangle>
+        </DockPanel>
+    </materialDesign:Card>
+
+
+
+</UserControl>

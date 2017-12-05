@@ -1,0 +1,17 @@
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\bin\Debug\ADS_Communication_Test_App.exe.config
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\bin\Debug\ADS_Communication_Test_App.exe
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\bin\Debug\ADS_Communication_Test_App.pdb
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App.csprojResolveAssemblyReference.cache
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\MainWindow.g.cs
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\App.g.cs
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App_MarkupCompile.cache
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App_MarkupCompile.lref
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\MainWindow.baml
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App.g.resources
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App.Properties.Resources.resources
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App.csproj.GenerateResource.Cache
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App.csproj.CoreCompileInputs.cache
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App.exe
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\obj\Debug\ADS_Communication_Test_App.pdb
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\bin\Debug\TwinCAT.Ads.dll
+C:\Users\cbiro\Desktop\ADS_Communication_Test_App\ADS_Communication_Test_App\bin\Debug\TwinCAT.Ads.xml
