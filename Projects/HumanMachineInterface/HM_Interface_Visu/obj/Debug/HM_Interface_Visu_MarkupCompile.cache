@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\BiróCsabaAttila\Documents\GitHub\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\
 HM_Interface_Visu
 none
 false
 DEBUG;TRACE
-C:\Users\BiróCsabaAttila\Documents\GitHub\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\App.xaml
-41740147873
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\App.xaml
+8123691651
 
 8359708666
-18808689448
-LoginDialogBox.xaml;MainWindow.xaml;Notification.xaml;SampleMessageDialog.xaml;
+181835180243
+LoginDialogBox.xaml;MainWindow.xaml;Notification.xaml;SampleMessageDialog.xaml;Theme\HMIDesigneTheme.Custom.StyleDictionary.xaml;Theme\HMIDesigneColor.Default.ColorResource.xaml;Theme\HMIDesigneColor.Default.xaml;Theme\HMIDesigneTheme.Default.xaml;
 
 False
 

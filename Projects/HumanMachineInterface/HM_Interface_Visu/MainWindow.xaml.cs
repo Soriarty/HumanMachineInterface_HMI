@@ -20,7 +20,6 @@ namespace HM_Interface_Visu
 
         public static Snackbar Snackbar;
         private Notification notifiDisplayer;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -49,9 +48,11 @@ namespace HM_Interface_Visu
 
                 if (LoginDialog.User.Text == "admin" && LoginDialog.Password.Password == "100")
                 {
-                    notifiDisplayer.Configuration("Sikeres bejelentkezés", Colors.Yellow, false);
+                    lbCount.Content = NotifiSlot.Children.Count.ToString();
+                    
                     if (NotifiSlot.Children.Count == 0)
                     {
+                        notifiDisplayer.Configuration("Sikeres bejelentkezés", (SolidColorBrush)FindResource("BaseYellowBrush"), false);
                         NotifiSlot.Children.Add(notifiDisplayer);
                     }
                     await Task.Factory.StartNew(() => { Thread.Sleep(5000); }).ContinueWith(t =>
@@ -60,14 +61,17 @@ namespace HM_Interface_Visu
                         {
                             this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
                         }
-                        
+
                     }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
                 else
                 {
-                    notifiDisplayer.Configuration("Sikertelen bejelentkezés, helytelen felhasználónév vagy jelszó!", Colors.Red, true);
+                    lbCount.Content = NotifiSlot.Children.Count.ToString();
+                    
+                    
                     if (NotifiSlot.Children.Count == 0)
                     {
+                        notifiDisplayer.Configuration("Sikertelen bejelentkezés, helytelen felhasználónév vagy jelszó!", (SolidColorBrush)FindResource("BaseRedBrush"), true);
                         NotifiSlot.Children.Add(notifiDisplayer);
                     }
 
@@ -82,14 +86,14 @@ namespace HM_Interface_Visu
             }
 
         }
-        
+
         private void SnackBarButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
         }
         private void MenuToggleButton_Checked(object sender, RoutedEventArgs e)
         {
@@ -98,7 +102,7 @@ namespace HM_Interface_Visu
         private void CloseNotification_ButtonClick(object sender, RoutedEventArgs e)
         {
             if (notifiDisplayer.btnOK.Opacity == 100) { CloseNotification(); }
-            
+
         }
         private void CloseNotification_CardTouch(object sender, TouchEventArgs e)
         {
@@ -109,6 +113,12 @@ namespace HM_Interface_Visu
             if (notifiDisplayer.btnOK.Opacity == 0) { CloseNotification(); }
         }
         #endregion
+
+        private void btnControl_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnControl.Background == (SolidColorBrush)FindResource("BaseRedBrush")) { btnControl.Background = (SolidColorBrush)FindResource("BaseGreenBrush"); }
+            else { btnControl.Background = (SolidColorBrush)FindResource("BaseRedBrush"); }
+        }
     }
 }
 

@@ -23,13 +23,14 @@ namespace HM_Interface_Visu
         {
             InitializeComponent();
         }
-        public void Configuration(string strMessage, Color ErrorColor, bool buttonVisible)
+        public void Configuration(string strMessage, SolidColorBrush ErrorColor, bool buttonVisible)
         {
             btnVisible = buttonVisible;
             if (btnVisible) { btnOK.Opacity = 100; }
             else { btnOK.Opacity = 0; }            
             Message.Text = strMessage;
-            this.ErrorColor.Fill = new SolidColorBrush(ErrorColor);
+            this.ErrorColor.BorderBrush = ErrorColor;
+            this.ErrorIcon.Foreground = ErrorColor;
         }
     }
 }

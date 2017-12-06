@@ -4,7 +4,6 @@
                         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                         xmlns:MahApps="http://metro.mahapps.com/winfx/xaml/shared"
                         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                        xmlns:Uwpcontrols="using:Microsoft.Toolkit.Uwp.UI.Controls"
                         xmlns:system="clr-namespace:System;assembly=mscorlib"
                         xmlns:notifiMSG ="clr-namespace:HM_Interface_Visu"
         
@@ -32,8 +31,9 @@
         <DockPanel>
             <materialDesign:ColorZone Padding="16" Mode="PrimaryMid" DockPanel.Dock="Top" materialDesign:ShadowAssist.ShadowDepth="Depth3" MinHeight="80" >
                 <DockPanel>
-                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="MenuToggleButton" Checked="MenuToggleButton_Checked"/>
-
+                    <Button x:Name="btnControl" Margin="20,0,0,0" Style="{StaticResource ControllFloatingActionMiniLightButton}" ToolTip="Toggle button" Width="80" Height="80" Click="btnControl_Click">
+                        <materialDesign:PackIcon Width="70" Height="70" Kind="Play" />
+                    </Button>
                     <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                         <StackPanel>
                             <Button Content="Login" Click="MenuPopupButton_OnClick"/>
@@ -54,11 +54,13 @@
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
-                        <Button Content="Home" FontSize="20" Grid.Row="0" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5 10 5 0" Height="70"/>
-                        <Button Content="Manual" FontSize="20" Grid.Row="1" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5 10 5 0" Height="70"/>
-                        <Button Content="Position" FontSize="20" Grid.Row="2" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5 10 5 0" Height="70"/>
-                        <Button Content="History" FontSize="20" Grid.Row="3" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5 5 10 0" Height="70"/>
-                        <Button Content="Monitoring" FontSize="20" Grid.Row="4" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5 10 5 0" Height="70"/>
+                        <Button Content="Home" FontSize="20" Grid.Row="0" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
+                        <Button Content="Manual" FontSize="20" Grid.Row="1" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
+                        <Button Content="Position" FontSize="20" Grid.Row="2" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
+                        <materialDesign:Badged Grid.Row="3" Margin="5,20,5,0" Height="70" Badge="16" BadgeColorZoneMode="Inverted" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <Button Content="History" FontSize="20"  IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Height="70"/>
+                        </materialDesign:Badged>
+                        <Button Content="Monitoring" FontSize="20" Grid.Row="4" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
                     </Grid>
                 </materialDesign:ColorZone>
                 <Grid x:Name="GUI">
@@ -68,7 +70,7 @@
                     </Grid.RowDefinitions>
 
                     <DockPanel Grid.Row="0" VerticalAlignment="Top" >
-
+                        <Label x:Name="lbCount" Content="children count"/>
                     </DockPanel>
                     <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
                         <StackPanel x:Name="NotifiSlot" Margin="10 10 10 10"/>
