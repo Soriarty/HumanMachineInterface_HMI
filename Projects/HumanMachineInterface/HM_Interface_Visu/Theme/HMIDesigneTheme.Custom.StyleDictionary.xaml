@@ -10,9 +10,9 @@
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="BaseRedBrush" Color="#e74c3c"/>
-    <SolidColorBrush x:Key="BaseGreenBrush" Color="#2ecc71"/>
-    <SolidColorBrush x:Key="BaseYellowBrush" Color="#f1c40f"/>
+    <SolidColorBrush x:Key="BaseRedBrush" Color="#ff0000"/>
+    <SolidColorBrush x:Key="BaseGreenBrush" Color="#00cc00"/>
+    <SolidColorBrush x:Key="BaseYellowBrush" Color="#ffcc00"/>
 
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
@@ -125,7 +125,71 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}"/>
         <Setter Property="wpf:ButtonProgressAssist.IndicatorForeground" Value="{DynamicResource PrimaryHueDarkBrush}" />
     </Style>
+
+    <Style x:Key="CustomDesignRaisedButton" TargetType="{x:Type ButtonBase}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+        <Setter Property="wpf:RippleAssist.Feedback" Value="White" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth1" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium"/>
+        <Setter Property="TextBlock.FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="16 4 16 4"/>
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid>
+                        <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:ShadowAssist.CacheMode)}">
+                            <Grid>
+                                <Border Background="{TemplateBinding Background}" CornerRadius="0"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"                                    
+                                        x:Name="border"
+                                        Effect="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}" />
+                                <Border HorizontalAlignment="Left" Background="{DynamicResource MaterialDesignBackground}" Opacity=".4">
+                                    <Border.Width>
+                                        <MultiBinding Converter="{StaticResource RangeLengthConverter}">
+                                            <Binding Path="(wpf:ButtonProgressAssist.Minimum)" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Path="(wpf:ButtonProgressAssist.Maximum)" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Path="(wpf:ButtonProgressAssist.Value)" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ButtonBase}}" />
+                                        </MultiBinding>
+                                    </Border.Width>
+                                </Border>
+                            </Grid>
+                        </AdornerDecorator>
+                        <wpf:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"     
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Padding="{TemplateBinding Padding}" 
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="border" Property="wpf:ShadowAssist.Darken" Value="True" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter TargetName="border" Property="wpf:ShadowAssist.Darken" Value="True" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.23"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     
-    
+    <Style x:Key="CustomDesignRaisedDarkButton" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource CustomDesignRaisedButton}">
+        <Setter Property="Background" Value="{DynamicResource OpPaper}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource OpToolBarBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+    </Style>
 
 </ResourceDictionary>

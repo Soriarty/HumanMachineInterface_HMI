@@ -69,16 +69,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="LoginDialogBox.xaml.cs">
+    <Compile Include="Assets\FlyOutMenuButton.xaml.cs">
+      <DependentUpon>FlyOutMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\LoginDialogBox.xaml.cs">
       <DependentUpon>LoginDialogBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Notification.xaml.cs">
+    <Compile Include="Assets\MainMenuButton.xaml.cs">
+      <DependentUpon>MainMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SampleMessageDialog.xaml.cs">
+    <Compile Include="Assets\SampleMessageDialog.xaml.cs">
       <DependentUpon>SampleMessageDialog.xaml</DependentUpon>
     </Compile>
-    <Page Include="LoginDialogBox.xaml">
+    <Page Include="Assets\FlyOutMenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\LoginDialogBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\MainMenuButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,11 +108,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Notification.xaml">
+    <Page Include="Assets\Notification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SampleMessageDialog.xaml">
+    <Page Include="Assets\SampleMessageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\HMIDesigneOpacityColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWindow_temp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

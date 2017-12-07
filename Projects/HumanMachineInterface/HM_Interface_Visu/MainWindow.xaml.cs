@@ -42,17 +42,15 @@ namespace HM_Interface_Visu
             var LoginDialog = new LoginDialogBox();
             if (((ButtonBase)sender).Content.ToString() == "Login")
             {
-                LoginDialog.Message.Text = "Jelentkezz be a karbantartási funkciók eléréséhez!";
+                LoginDialog.Message.Text = "Add meg a felhasználónevet és jelszót a karbantartási funkciók eléréséhez!";
 
                 await DialogHost.Show(LoginDialog, "RootDialog");
 
                 if (LoginDialog.User.Text == "admin" && LoginDialog.Password.Password == "100")
-                {
-                    lbCount.Content = NotifiSlot.Children.Count.ToString();
-                    
+                {                    
                     if (NotifiSlot.Children.Count == 0)
                     {
-                        notifiDisplayer.Configuration("Sikeres bejelentkezés", (SolidColorBrush)FindResource("BaseYellowBrush"), false);
+                        notifiDisplayer.Configuration("Sikeres bejelentkezés, mostmár elérhetővé váltak a speciális funkciók", (SolidColorBrush)FindResource("BaseYellowBrush"), false);
                         NotifiSlot.Children.Add(notifiDisplayer);
                     }
                     await Task.Factory.StartNew(() => { Thread.Sleep(5000); }).ContinueWith(t =>
@@ -65,9 +63,7 @@ namespace HM_Interface_Visu
                     }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
                 else
-                {
-                    lbCount.Content = NotifiSlot.Children.Count.ToString();
-                    
+                {                  
                     
                     if (NotifiSlot.Children.Count == 0)
                     {

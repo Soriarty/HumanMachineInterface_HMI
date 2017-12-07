@@ -9,7 +9,7 @@
              MinHeight="110">
 
     
-        <materialDesign:Card x:Name="BaseCard" VerticalAlignment="Stretch" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <materialDesign:Card x:Name="BaseCard" Background="{DynamicResource MaterialDesignCardBackground}" VerticalAlignment="Stretch" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
         <Border x:Name="ErrorColor" Padding="10" BorderBrush="{DynamicResource BaseRedBrush}" BorderThickness="10 10 10 10" VerticalAlignment="Center">
             <Grid Height="80" DockPanel.Dock="Top" VerticalAlignment="Center">
                 <Grid.RowDefinitions>

@@ -5,7 +5,7 @@
                         xmlns:MahApps="http://metro.mahapps.com/winfx/xaml/shared"
                         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                         xmlns:system="clr-namespace:System;assembly=mscorlib"
-                        xmlns:notifiMSG ="clr-namespace:HM_Interface_Visu"
+                        xmlns:Assets ="clr-namespace:HM_Interface_Visu.Assets"
         
         Title="Human Machine Interface" Height="800" Width="1100"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -15,7 +15,8 @@
         TextOptions.TextRenderingMode="Auto"        
         GlowBrush="{DynamicResource AccentColorBrush}"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{StaticResource MaterialDesignFont}" Loaded="MetroWindow_Loaded">
+        FontFamily="{StaticResource MaterialDesignFont}"        
+                        Loaded="MetroWindow_Loaded">
 
     <controls:MetroWindow.Resources>
         <ResourceDictionary>
@@ -25,9 +26,9 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-     </controls:MetroWindow.Resources>
-
+    </controls:MetroWindow.Resources>
     <materialDesign:DialogHost  x:Name="DialogHost" Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+        <DockPanel Background="{DynamicResource BackgroundImage}">
         <DockPanel>
             <materialDesign:ColorZone Padding="16" Mode="PrimaryMid" DockPanel.Dock="Top" materialDesign:ShadowAssist.ShadowDepth="Depth3" MinHeight="80" >
                 <DockPanel>
@@ -43,41 +44,69 @@
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">HMI</TextBlock>
                 </DockPanel>
             </materialDesign:ColorZone>
-            <DockPanel>
-                <materialDesign:ColorZone Mode="Dark"  materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="150">
-                    <Grid x:Name="MenuGrid" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
-                        <Button Content="Home" FontSize="20" Grid.Row="0" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
-                        <Button Content="Manual" FontSize="20" Grid.Row="1" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
-                        <Button Content="Position" FontSize="20" Grid.Row="2" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
-                        <materialDesign:Badged Grid.Row="3" Margin="5,20,5,0" Height="70" Badge="16" BadgeColorZoneMode="Inverted" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
-                            <Button Content="History" FontSize="20"  IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Height="70"/>
-                        </materialDesign:Badged>
-                        <Button Content="Monitoring" FontSize="20" Grid.Row="4" IsDefault="True" materialDesign:RippleAssist.Feedback="#DD000000" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="5,20,5,0" Height="70"/>
+                <DockPanel>
+                    <DockPanel >
+                        <materialDesign:ColorZone Margin="5 5 0 5" Background="{DynamicResource MaterialDesignCardBackground}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="175">
+                            <DockPanel>
+                                <Grid VerticalAlignment="Top">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="100" />
+                                    </Grid.RowDefinitions>
+                                    <Button x:Name="btnMainScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Főképőernyő" Foreground="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
+                                    <Button x:Name="btnManualScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Kézi vezérlés" Grid.Row="1" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
+                                    <Button x:Name="btnSettingsScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Beállítások" Grid.Row="2" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
+                                    <Button x:Name="btnHistoryScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Előzmények" Grid.Row="3" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
+                                </Grid>
+                            </DockPanel>
+
+                        </materialDesign:ColorZone>
+                        <Grid VerticalAlignment="Top" Margin="0 5 0 5" Width="5">
+                            <Grid.ColumnDefinitions>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Margin="0 1 0 0" Visibility="Visible"/>
+                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="1" Margin="0 1 0 0" Visibility="Hidden"/>
+                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="2" Margin="0 1 0 0" Visibility="Hidden"/>
+                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="3" Margin="0 1 0 0" Visibility="Hidden"/>
+                        </Grid>
+                    </DockPanel>
+                    <Grid x:Name="MainGrid" Margin="5 5 5 5">
+                        <Grid x:Name="GUI" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <DockPanel Grid.Row="0" VerticalAlignment="Top" Margin="5 5 5 5">
+                                <Grid Height="200" VerticalAlignment="Top" >
+                                    <Image Source="background.png" Stretch="Fill" Opacity="0" >
+                                        <Image.Effect>
+                                            <BlurEffect Radius="5"/>
+                                        </Image.Effect>
+                                    </Image>
+                                    <Canvas Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                        <TextBlock Text="Ez most itt átlátszó lesz!" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Canvas>
+                                </Grid>
+                            </DockPanel>
+                            <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
+                                <StackPanel x:Name="NotifiSlot" Margin="10 10 10 10"/>
+                            </DockPanel>
+                        </Grid>
                     </Grid>
-                </materialDesign:ColorZone>
-                <Grid x:Name="GUI">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <DockPanel Grid.Row="0" VerticalAlignment="Top" >
-                        <Label x:Name="lbCount" Content="children count"/>
-                    </DockPanel>
-                    <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
-                        <StackPanel x:Name="NotifiSlot" Margin="10 10 10 10"/>
-                    </DockPanel>
-                </Grid>
-            </DockPanel>
-
+                </DockPanel>
+        </DockPanel>
         </DockPanel>
     </materialDesign:DialogHost>
 </controls:MetroWindow>

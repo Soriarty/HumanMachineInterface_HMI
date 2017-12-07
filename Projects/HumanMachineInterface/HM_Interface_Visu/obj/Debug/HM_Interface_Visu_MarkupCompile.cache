@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\
+D:\Software_Development\C#\HumanMachineInterface\HM_Interface_Visu\obj\Debug\
 HM_Interface_Visu
 none
 false
 DEBUG;TRACE
-D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\App.xaml
-8123691651
+D:\Software_Development\C#\HumanMachineInterface\HM_Interface_Visu\App.xaml
+11561320452
 
-8359708666
-181835180243
-LoginDialogBox.xaml;MainWindow.xaml;Notification.xaml;SampleMessageDialog.xaml;Theme\HMIDesigneTheme.Custom.StyleDictionary.xaml;Theme\HMIDesigneColor.Default.ColorResource.xaml;Theme\HMIDesigneColor.Default.xaml;Theme\HMIDesigneTheme.Default.xaml;
+10-1161986588
+181470454195
+Assets\FlyOutMenuButton.xaml;Assets\LoginDialogBox.xaml;Assets\MainMenuButton.xaml;MainWindow.xaml;Assets\Notification.xaml;Assets\SampleMessageDialog.xaml;Theme\HMIDesigneOpacityColors.xaml;Theme\HMIDesigneTheme.Custom.StyleDictionary.xaml;Theme\HMIDesigneColor.Default.ColorResource.xaml;Theme\HMIDesigneColor.Default.xaml;Theme\HMIDesigneTheme.Default.xaml;
 
 False
 
