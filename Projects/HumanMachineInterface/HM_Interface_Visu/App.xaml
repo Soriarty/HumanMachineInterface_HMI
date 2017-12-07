@@ -26,9 +26,9 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Theme/HMIDesigneTheme.Custom.StyleDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <ImageBrush x:Key="BackgroundImage" ImageSource="background.png" Opacity=".3"/>
+            <ImageBrush x:Key="OpBackgroundImage" ImageSource="background.png" Opacity=".3"/>
 
-            
+            <SolidColorBrush x:Key="WindowBackGround" Color="#1e1e1e"/>
             <SolidColorBrush x:Key="AttentionToActionBrush" Color="{StaticResource MaterialDesignShadow}" Opacity=".23" po:Freeze="True" />
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>
             <SolidColorBrush x:Key="AccentColorBrush" Color="{DynamicResource HMIAccent700}"/>
