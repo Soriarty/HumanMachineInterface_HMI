@@ -191,5 +191,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource OpToolBarBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
     </Style>
+    
+    
 
 </ResourceDictionary>

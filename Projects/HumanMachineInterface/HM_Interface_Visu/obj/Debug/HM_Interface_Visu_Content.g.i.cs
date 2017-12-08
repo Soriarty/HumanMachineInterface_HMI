@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mainwindow_temp.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("harman_logo2.png")]
 
 

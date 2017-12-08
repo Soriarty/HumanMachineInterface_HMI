@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HM_Interface_Visu.Assets
 {
     /// <summary>
-    /// Interaction logic for LoginDialog.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class LoginDialogBox : UserControl
+    public partial class MainPage : UserControl
     {
-        public LoginDialogBox()
+        public MainPage()
         {
             InitializeComponent();
         }

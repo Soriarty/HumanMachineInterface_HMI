@@ -28,28 +28,52 @@
         </ResourceDictionary>
     </controls:MetroWindow.Resources>
     <materialDesign:DialogHost  x:Name="DialogHost" Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
-
         <DockPanel Background="{DynamicResource OpBackgroundImage}">
-            <DockPanel>
+            <DockPanel DockPanel.Dock="Bottom">
                 <materialDesign:ColorZone Padding="16" Mode="PrimaryMid" DockPanel.Dock="Top" materialDesign:ShadowAssist.ShadowDepth="Depth3" MinHeight="80" >
-                <DockPanel>
-                    <Button x:Name="btnControl" Margin="20,0,0,0" Style="{StaticResource ControllFloatingActionMiniLightButton}" ToolTip="Toggle button" Width="80" Height="80" Click="btnControl_Click">
-                        <materialDesign:PackIcon Width="70" Height="70" Kind="Play" />
-                    </Button>
-                    <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                        <StackPanel>
-                            <Button Content="Login" Click="MenuPopupButton_OnClick"/>
-                            <Button Content="Logout" IsEnabled="False" />
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">HMI</TextBlock>
-                </DockPanel>
-            </materialDesign:ColorZone>
+                    <DockPanel>
+                        <Button x:Name="btnControl" Margin="20,0,0,0" Style="{StaticResource ControllFloatingActionMiniLightButton}" ToolTip="Vezérlés Be/Ki" Width="80" Height="80" Click="btnControl_Click">
+                            <materialDesign:PackIcon Width="70" Height="70" Kind="Play" />
+                        </Button>
+                        <Button x:Name="btnMode" Margin="20,0,100,0" Style="{StaticResource ControllFloatingActionMiniLightButton}" ToolTip="Automata/Kézi üzemmód" Width="80" Height="80" Click="btnMode_Click">
+                            <TextBlock x:Name="btnModeContent" FontSize="48" FontWeight="Bold">M</TextBlock>
+                        </Button>
+                        
+                        <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10,0,0,0">
+                            <StackPanel>
+                                <Button Content="Login" Click="MenuPopupButton_OnClick"/>
+                                <Button Content="Logout" IsEnabled="False" />
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                        
+                        <Slider
+                            x:Name="SpeedBar"
+	                        Width="266"
+	                        Margin="0,0,0,0"	                        
+	                        Maximum="100"
+	                        Minimum="1"
+	                        Orientation="Horizontal"
+                            Foreground="{DynamicResource AccentColorBrush}"                            
+                            ToolTip="Overall Speed"
+	                        TickFrequency="10"
+	                        TickPlacement="BottomRight"
+	                        Value="75" 
+                            HorizontalContentAlignment="Center" 
+                            VerticalContentAlignment="Center" 
+                            DockPanel.Dock="Right" 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Right" 
+                            ValueChanged="SpeedBar_ValueChanged" />
+                        <TextBlock x:Name="SpeedBox" Text="75 %" Margin="5 0 10 0" Width="75.000" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="22" MouseLeftButtonUp="SpeedBox_MouseLeftButtonUp"/>
+                        <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="22">Sebesség:</TextBlock>
+                        
+                    </DockPanel>
+                </materialDesign:ColorZone>
                 <DockPanel>
                     <DockPanel >
                         <materialDesign:ColorZone Margin="5 5 0 5" Background="{DynamicResource MaterialDesignCardBackground}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="175">
                             <DockPanel>
-                                <Grid VerticalAlignment="Top">
+                                <Grid VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
@@ -59,10 +83,14 @@
                                         <RowDefinition Height="100" />
                                         <RowDefinition Height="100" />
                                     </Grid.RowDefinitions>
-                                    <Button x:Name="btnMainScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Főképőernyő" Foreground="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
-                                    <Button x:Name="btnManualScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Kézi vezérlés" Grid.Row="1" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
-                                    <Button x:Name="btnSettingsScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Beállítások" Grid.Row="2" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
-                                    <Button x:Name="btnHistoryScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Előzmények" Grid.Row="3" Grid.Column="0" Height="100" Margin="1 1 0 0"/>
+                                    <Button x:Name="btnMainScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Főképőernyő" Foreground="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="0" Height="100" Margin="1,1,1,0" Click="btnMainScreen_Click"/>
+                                    <Button x:Name="btnManualScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Kézi vezérlés" Grid.Row="1" Grid.Column="0" Height="100" Margin="1 1 1 0" Click="btnManualScreen_Click"/>
+                                    <Button x:Name="btnSettingsScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Beállítások" Grid.Row="2" Grid.Column="0" Height="100" Margin="1 1 1 0" Click="btnSettingsScreen_Click"/>
+                                    <Button x:Name="btnHistoryScreen" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Előzmények" Grid.Row="3" Grid.Column="0" Height="100" Margin="1 1 1 0" Click="btnHistoryScreen_Click"/>
+                                    <Rectangle Width="5" x:Name="MainIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Margin="0 1 1 0" Visibility="Visible" HorizontalAlignment="Right"/>
+                                    <Rectangle Width="5" x:Name="ManualIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="1" Margin="0 1 1 0" Visibility="Hidden" HorizontalAlignment="Right"/>
+                                    <Rectangle Width="5" x:Name="SettingsIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="2" Margin="0 1 1 0" Visibility="Hidden" HorizontalAlignment="Right"/>
+                                    <Rectangle Width="5" x:Name="HistoryIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="3" Margin="0 1 1 0" Visibility="Hidden" HorizontalAlignment="Right"/>
                                 </Grid>
                             </DockPanel>
 
@@ -76,44 +104,31 @@
                                 <RowDefinition Height="100" />
                                 <RowDefinition Height="100" />
                             </Grid.RowDefinitions>
-                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Margin="0 1 0 0" Visibility="Visible"/>
-                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="1" Margin="0 1 0 0" Visibility="Hidden"/>
-                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="2" Margin="0 1 0 0" Visibility="Hidden"/>
-                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Grid.Row="3" Margin="0 1 0 0" Visibility="Hidden"/>
+
                         </Grid>
                     </DockPanel>
                     <Grid x:Name="MainGrid" Margin="5 5 5 5">
 
                         <Grid x:Name="GUI" Grid.Column="1">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
+                                <RowDefinition Height="150" />
                             </Grid.RowDefinitions>
 
-                            <DockPanel Grid.Row="0" VerticalAlignment="Top" Margin="5 5 5 5">
-                                <Grid Height="200" VerticalAlignment="Top" >
-                                    <Image Source="background.png" Stretch="Fill" Opacity="0" >
-                                        <Image.Effect>
-                                            <BlurEffect Radius="5"/>
-                                        </Image.Effect>
-                                    </Image>
-                                    <Canvas Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                                        <TextBlock Text="Ez most itt átlátszó lesz!" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                    </Canvas>
-                                </Grid>
+                            <DockPanel Grid.Row="0" Margin="50 50 50 0" >
+                                <Border BorderThickness="5" BorderBrush="{DynamicResource MaterialDesignPaper}">
+                                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{DynamicResource MaterialDesignCardBackground}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch">
+                                        <Assets:MainPage></Assets:MainPage>
+                                    </materialDesign:Card>
+                                </Border>
                             </DockPanel>
                             <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
-                                <StackPanel x:Name="NotifiSlot" Margin="10 10 10 10"/>
+                                <StackPanel x:Name="NotifiSlot" Margin="50 10 50 10"/>
                             </DockPanel>
                         </Grid>
                     </Grid>
                 </DockPanel>
-        </DockPanel>
-            <Image Source="background.png" Stretch="Fill" Opacity=".5" >
-                <Image.Effect>
-                    <BlurEffect Radius="90" RenderingBias="Quality"/>
-                </Image.Effect>
-            </Image>
+            </DockPanel>
         </DockPanel>
         
     </materialDesign:DialogHost>

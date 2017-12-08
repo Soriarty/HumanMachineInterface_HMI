@@ -145,3 +145,14 @@ D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\Hum
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\FlyOutMenuButton.baml
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\MainMenuButton.baml
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Theme\HMIDesigneOpacityColors.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ParameterInputBox.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ParameterInputBox.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\HistoryPage.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\MainPage.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualPage.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\SettingsPage.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\HistoryPage.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\MainPage.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualPage.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\SettingsPage.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\GeneratedInternalTypeHelper.g.cs

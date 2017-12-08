@@ -72,11 +72,23 @@
     <Compile Include="Assets\FlyOutMenuButton.xaml.cs">
       <DependentUpon>FlyOutMenuButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\LoginDialogBox - Copy.xaml.cs">
+      <DependentUpon>ParameterInputBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\LoginDialogBox.xaml.cs">
       <DependentUpon>LoginDialogBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\MainMenuButton.xaml.cs">
       <DependentUpon>MainMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualPage.xaml.cs">
+      <DependentUpon>ManualPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
@@ -88,11 +100,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\HistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ParameterInputBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Assets\LoginDialogBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\MainMenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,6 +135,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assets\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -169,6 +204,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="MainWindow_temp.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Harman_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Harman_Logo2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
