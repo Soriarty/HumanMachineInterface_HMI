@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<LanguageElements>
+  <Message>
+    <Key>MainScreen</Key>
+    <Text>Főképernyő</Text>    
+  </Message>
+  
+  <Message>
+    <Key>ManualScreen</Key>
+    <Text>KéziVezérlés</Text>
+  </Message>
+  
+  <Message>
+    <Key>SettingsScreen</Key>
+    <Text>Beállítások</Text>
+  </Message>
+  <Message>
+    <Key>HistoryScreen</Key>
+    <Text>Előzmények</Text>
+  </Message>
+  <Message>
+    <Key>Speed</Key>
+    <Text>Sebesség</Text>
+  </Message>
+  <Message>
+    <Key>LoginMessage</Key>
+    <Text>Add meg a felhasználónevet és jelszót a karbantartási funkciók eléréséhez!</Text>
+  </Message>
+
+</LanguageElements> 

@@ -34,9 +34,20 @@
                 IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                 HorizontalAlignment="Right"
                 Margin="16 16 16 0"
-                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                CommandParameter="Accept"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Click="Button_Click">
             ACCEPT
         </Button>
+        
+        <Button Grid.Row="3" 
+                IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
+                HorizontalAlignment="Left"
+                Margin="16 16 16 0"
+                CommandParameter="Cancel"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Click="Button_Click_1">
+            CANCEL
+        </Button>
+
     </Grid>
 </UserControl>
 

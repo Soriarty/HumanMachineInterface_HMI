@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<DocumentElement>
+  
+  <Error>
+    <Notification>
+      <Code>8</Code>
+      <Description>Ez egy HIBA üzenet XML-ből ErrorCode: #008 </Description>
+      <Confirmation>true</Confirmation>
+    </Notification>
+    <Notification>
+      <Code>15</Code>
+      <Description>Ez egy HIBA üzenet XML-ből ErrorCode: #015</Description>
+      <Confirmation>true</Confirmation>
+    </Notification>
+  </Error>
+  
+  <Warning>
+    <Notification>
+      <Code>201</Code>
+      <Description>Ez egy Figyelmeztető üzenet XML-ből WarningCode: #201</Description>
+      <Confirmation>false</Confirmation>
+    </Notification>
+    <Notification>
+      <Code>306</Code>
+      <Description>Ez egy Figyelmeztető üzenet XML-ből WarningCode: #306</Description>
+      <Confirmation>false</Confirmation>
+    </Notification>
+  </Warning>
+  
+</DocumentElement>
+
+<!-- 
+Error Code: 1-199 || Warning Code: 201-399
+Maximum description 300 char.
+-->

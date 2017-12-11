@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,10 @@ namespace HM_Interface_Visu.Assets
         public LoginDialogBox()
         {
             InitializeComponent();
+        }
+
+        private void User_GotTouchCapture(object sender, TouchEventArgs e)
+        {
         }
     }
 }

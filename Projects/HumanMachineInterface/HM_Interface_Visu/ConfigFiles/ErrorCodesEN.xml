@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<DocumentElement>
+
+  <Error>
+    <Notification>
+      <Code>8</Code>
+      <Description>This is an ERROR message from XML ErrorCode: #008 </Description>
+      <Confirmation>true</Confirmation>
+    </Notification>
+    <Notification>
+      <Code>15</Code>
+      <Description>This is an ERROR message from XML ErrorCode: #015</Description>
+      <Confirmation>true</Confirmation>
+    </Notification>
+  </Error>
+
+  <Warning>
+    <Notification>
+      <Code>201</Code>
+      <Description>This is an WARNING message from XML WarningCode: #201</Description>
+      <Confirmation>false</Confirmation>
+    </Notification>
+    <Notification>
+      <Code>306</Code>
+      <Description>This is an WARNING message from XML WarningCode: #306</Description>
+      <Confirmation>false</Confirmation>
+    </Notification>
+  </Warning>
+
+</DocumentElement>
+
+<!-- 
+Error Code: 1-199 || Warning Code: 201-399
+Maximum description 300 char.
+-->

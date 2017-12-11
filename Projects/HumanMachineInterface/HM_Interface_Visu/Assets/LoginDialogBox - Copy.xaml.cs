@@ -20,9 +20,20 @@ namespace HM_Interface_Visu.Assets
     /// </summary>
     public partial class ParameterInputBox : UserControl
     {
+        public bool result = false;
         public ParameterInputBox()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            result = true;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            result = false;
         }
     }
 }
