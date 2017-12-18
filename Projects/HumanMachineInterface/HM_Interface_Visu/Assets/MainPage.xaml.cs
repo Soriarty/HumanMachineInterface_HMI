@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HM_Interface_Visu.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TwinCAT.Ads;
 
 namespace HM_Interface_Visu.Assets
 {
@@ -23,6 +25,7 @@ namespace HM_Interface_Visu.Assets
         public MainPage()
         {
             InitializeComponent();
-        }
+            this.Name = "Main";
+        }        
     }
 }

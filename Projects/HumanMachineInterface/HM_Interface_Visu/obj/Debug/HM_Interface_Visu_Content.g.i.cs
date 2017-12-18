@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("configfiles/languageen.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("splashscreen.png")]
 
 

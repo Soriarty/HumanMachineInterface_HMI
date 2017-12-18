@@ -4,6 +4,10 @@ FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\Hu
 FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\HistoryPage.xaml;;
 FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\MainPage.xaml;;
 FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\ManualPage.xaml;;
+FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\ManualScreenElements\AxisScreen.xaml;;
+FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\ManualScreenElements\MFUScreen.xaml;;
+FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\ManualScreenElements\OtherScreen.xaml;;
+FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\ManualScreenElements\PneumathicScreen.xaml;;
 FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\MainMenuButton.xaml;;
 FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\Assets\SettingsPage.xaml;;
 FD:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\MainWindow.xaml;;

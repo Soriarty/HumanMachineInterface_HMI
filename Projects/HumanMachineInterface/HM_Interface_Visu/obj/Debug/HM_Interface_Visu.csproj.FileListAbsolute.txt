@@ -157,3 +157,12 @@ D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\Hum
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\SettingsPage.baml
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\bin\Debug\TwinCAT.Ads.dll
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\bin\Debug\TwinCAT.Ads.xml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\bin\Debug\Dragablz.dll
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreen.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MFUScreen.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\OtherScreen.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\PneumathicScreen.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreen.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MFUScreen.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\OtherScreen.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\PneumathicScreen.baml

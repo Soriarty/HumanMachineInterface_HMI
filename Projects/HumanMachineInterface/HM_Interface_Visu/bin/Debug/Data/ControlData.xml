@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<VariableData>
+  <Var>
+  	<!--0-->
+    <adress>b_Controll</adress>
+    <type>System.Boolean</type>
+    <object>controll</object>
+  </Var>
+  <Var>
+  	<!--1-->
+    <adress>b_ModeSelect</adress>
+    <type>System.Boolean</type>
+    <object>mode</object>
+  </Var>
+  <Var>
+  	<!--2-->
+    <adress>i_DepragStatus</adress>
+    <type>System.Int16</type>
+    <object>deprag_status</object>
+  </Var>
+  <Var>
+  	<!--3-->
+    <adress>i_DepragStep</adress>
+    <type>System.Int16</type>
+    <object>deprag_step</object>
+  </Var>
+  <Var>
+  	<!--4-->
+    <adress>r_DepragTorque</adress>
+    <type>	System.Single</type>
+    <object>result_torque</object>
+  </Var>
+  <Var>
+  	<!--5-->
+    <adress>i_DepragAngle</adress>
+    <type>System.Int16</type>
+    <object>result_angle</object>
+  </Var>
+  <Var>
+  	<!--6-->
+    <adress>i_DepragProgramNR</adress>
+    <type>System.Int16</type>
+    <object>deprag_program</object>
+  </Var>
+    <Var>
+  	<!--7-->
+    <adress>r_DepragCycleTime</adress>
+    <type>System.Single</type>
+    <object>deprag_CycleTime</object>
+  </Var>
+  <Var>
+  	<!--8-->
+    <adress>i_ErrorMessage</adress>
+    <type>System.Int16</type>
+    <object>message_number</object>
+  </Var>
+</VariableData>
+
+<!-- 
+-->

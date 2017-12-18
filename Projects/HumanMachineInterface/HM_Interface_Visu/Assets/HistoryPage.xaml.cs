@@ -23,6 +23,7 @@ namespace HM_Interface_Visu.Assets
         public HistoryPage()
         {
             InitializeComponent();
+            this.Name = "History";
         }
     }
 }

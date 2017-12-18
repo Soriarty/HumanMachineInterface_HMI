@@ -7,7 +7,7 @@
                         xmlns:system="clr-namespace:System;assembly=mscorlib"
                         xmlns:Assets ="clr-namespace:HM_Interface_Visu.Assets"
         
-        Title="Human Machine Interface" Height="1200" Width="1600"
+        
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -16,7 +16,13 @@
         GlowBrush="{DynamicResource AccentColorBrush}"
         Background="{DynamicResource WindowBackGround}"
         FontFamily="{StaticResource MaterialDesignFont}"        
-                        Loaded="MetroWindow_Loaded">
+        Loaded="MetroWindow_Loaded" Icon="WindowIcon.ico" 
+                        WindowStartupLocation="CenterScreen" 
+                        WindowState="Maximized" 
+                        Title="BC Screwing HMI" 
+                        WindowTransitionsEnabled="False" 
+                        UseNoneWindowStyle="True"
+                        Width="1920" Height="1080">
 
     <controls:MetroWindow.Resources>
         <ResourceDictionary>
@@ -27,6 +33,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </controls:MetroWindow.Resources>
+    
+    <controls:MetroWindow.CommandBindings>
+        <CommandBinding Command="Close" Executed="CloseCommandHandler"/>
+    </controls:MetroWindow.CommandBindings>
+    
     <materialDesign:DialogHost  x:Name="DialogHost" Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
         <DockPanel Background="{DynamicResource OpBackgroundImage}">
             <DockPanel DockPanel.Dock="Bottom">
@@ -39,19 +50,19 @@
                         <Button x:Name="btnMode" Margin="20,0,100,0" Style="{StaticResource ControllFloatingActionMiniLightButton}" ToolTip="Automata/Kézi üzemmód" Width="80" Height="80" Click="btnMode_Click">
                             <TextBlock x:Name="btnModeContent" FontSize="48" FontWeight="Bold">M</TextBlock>
                         </Button>
-                        
-                        <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10,0,0,0">
-                            <StackPanel>
-                                <Button x:Name="btnLogin" Content="Login" Click="MenuPopupButton_OnClick"/>
-                                <Button x:Name="btnLogout" Content="Logout" Click="MenuPopupButton_OnClick" IsEnabled="False" />
-                            </StackPanel>
-                        </materialDesign:PopupBox>
-                        
+
+                        <Button Height="80" Width="80" Margin="5 5 5 5" Style="{DynamicResource CustomDesignRaisedDarkButton}" HorizontalAlignment="Right" DockPanel.Dock="Right" Command="Close" >
+                            <materialDesign:PackIcon Height="40" Width="40" Kind="Close"  Foreground="{DynamicResource BaseRedBrush}" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"></materialDesign:PackIcon>
+                        </Button>
+                        <Button Height="80" Width="80" Margin="5 5 5 5" Style="{DynamicResource CustomDesignRaisedDarkButton}" HorizontalAlignment="Right" DockPanel.Dock="Right" Click="MinimizeButton_Click" >
+                            <materialDesign:PackIcon Height="40" Width="40" Kind="WindowMinimize" Foreground="{DynamicResource MaterialDesignBodyLight}" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"></materialDesign:PackIcon>
+                        </Button>
                         <Slider
                             x:Name="SpeedBar"
                             IsEnabled="False"
-	                        Width="266"
-	                        Margin="0,0,0,0"	                        
+	                        Width="400"
+                            
+	                        Margin="0,0,100,0"	                        
 	                        Maximum="100"
 	                        Minimum="1"
 	                        Orientation="Horizontal"
@@ -67,13 +78,13 @@
                             HorizontalAlignment="Right" 
                             ValueChanged="SpeedBar_ValueChanged" />
                         <TextBlock x:Name="SpeedBox" Text="75 %" Margin="5 0 10 0" Width="75.000" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="22" MouseLeftButtonUp="SpeedBox_MouseLeftButtonUp"/>
-                        <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="22">Sebesség:</TextBlock>
-                        
+                        <TextBlock x:Name="lbSpeed" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="22">Sebesség:</TextBlock>
+
                     </DockPanel>
                 </materialDesign:ColorZone>
                 <DockPanel>
                     <DockPanel >
-                        <materialDesign:ColorZone Margin="5 5 0 5" Background="{DynamicResource MaterialDesignCardBackground}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="270">
+                        <materialDesign:ColorZone Margin="5 5 0 5" Background="{DynamicResource MaterialDesignCardBackground}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="220">
                             <DockPanel>
                                 <Grid VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0">
                                     <Grid.ColumnDefinitions>
@@ -129,8 +140,7 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="150" />
                             </Grid.RowDefinitions>
-
-                            <DockPanel Grid.Row="0" Margin="50 50 50 0" >
+                            <DockPanel Grid.Row="0" Margin="35 10 35 0" >
                                 <Border BorderThickness="5" BorderBrush="{DynamicResource MaterialDesignPaper}">
                                     <materialDesign:Card x:Name="MainCard" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{DynamicResource MaterialDesignCardBackground}"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch">
                                         <DockPanel x:Name="PageSlot">
@@ -139,7 +149,7 @@
                                 </Border>
                             </DockPanel>
                             <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
-                                <StackPanel x:Name="NotifiSlot" Margin="50 10 50 10"/>
+                                <StackPanel x:Name="NotifiSlot" Margin="35 10 35 10"/>
                             </DockPanel>
                         </Grid>
                     </Grid>

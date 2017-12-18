@@ -12,11 +12,11 @@ using System.IO;
 
 namespace HM_Interface_Visu.Classes
 {
-    class AdsCommunication
+    public static class AdsCommunication
     {
-        private TcAdsClient TwinCat3Client;
-        private ArrayList NotificationHandles;
-        private int hVar;
+        private static TcAdsClient TwinCat3Client;
+        private static ArrayList NotificationHandles;
+        private static int hVar;
         public struct VariableInfo
         {
             public string VarAdress;
@@ -25,7 +25,7 @@ namespace HM_Interface_Visu.Classes
         }
 
         #region Connect - Disconnect
-        public void Connect(AdsNotificationExEventHandler TwinCat3Client_AdsNotificationEx)
+        public static void Connect(AdsNotificationExEventHandler TwinCat3Client_AdsNotificationEx)
         {
             TwinCat3Client = new TcAdsClient();
             NotificationHandles = new ArrayList();
@@ -40,7 +40,7 @@ namespace HM_Interface_Visu.Classes
                 MessageBox.Show(ex.Message);
             }
         }
-        public void Disconnect()
+        public static void Disconnect()
         {
             try
             {
@@ -57,7 +57,7 @@ namespace HM_Interface_Visu.Classes
         }
         #endregion
         #region Notification
-        public void RegisterNotification(VariableInfo[] NotificationData, int maxStringLenght)
+        public static void RegisterNotification(VariableInfo[] NotificationData, int maxStringLenght)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace HM_Interface_Visu.Classes
                 {
                     for (int index = 0; index <= (NotificationData.Count() - 1); index++)
                     {
-                        if (NotificationData[index].Types == typeof(int)) AddDIntNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
+                        if (NotificationData[index].Types == typeof(Int16)) AddDIntNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
                         if (NotificationData[index].Types == typeof(Byte)) AddUIntNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
                         if (NotificationData[index].Types == typeof(Boolean)) AddBoolNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
                         if (NotificationData[index].Types == typeof(float)) AddRealNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
@@ -81,29 +81,29 @@ namespace HM_Interface_Visu.Classes
             }
         }
 
-        private void AddDIntNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
+        private static void AddDIntNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
         {
-            NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(int)));
+            NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(Int16)));
         }
-        private void AddUIntNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
+        private static void AddUIntNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
         {
             NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(Byte)));
         }
-        private void AddBoolNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
+        private static void AddBoolNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
         {
             NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(Boolean)));
         }
-        private void AddRealNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
+        private static void AddRealNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
         {
             NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(float)));
         }
-        private void AddStringNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection, int MaxChar)
+        private static void AddStringNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection, int MaxChar)
         {
             NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(String), new int[] { MaxChar }));
         }
         #endregion
         #region Single instance Read
-        public int ReadInt(string VarAdress)
+        public static int ReadInt(string VarAdress)
         {
             int result = 0;
             try
@@ -125,7 +125,7 @@ namespace HM_Interface_Visu.Classes
             }
             return result;
         }
-        public byte ReadByte(string VarAdress)
+        public static byte ReadByte(string VarAdress)
         {
             byte result = 0;
             try
@@ -147,7 +147,7 @@ namespace HM_Interface_Visu.Classes
             }
             return result;
         }
-        public bool ReadBit(string VarAdress)
+        public static bool ReadBit(string VarAdress)
         {
             bool result = false;
             try
@@ -169,7 +169,7 @@ namespace HM_Interface_Visu.Classes
             }
             return result;
         }
-        public float ReadReal(string VarAdress)
+        public static float ReadReal(string VarAdress)
         {
             float result = 0;
             try
@@ -191,7 +191,7 @@ namespace HM_Interface_Visu.Classes
             }
             return result;
         }
-        public string ReadString(string VarAdress)
+        public static string ReadString(string VarAdress)
         {
             string result = null;
             try
@@ -215,7 +215,7 @@ namespace HM_Interface_Visu.Classes
         }
         #endregion
         #region Single instace Write
-        public bool WriteAny(string VarAdress, object Message)
+        public static bool WriteAny(string VarAdress, object Message)
         {
             bool result = false;
             try

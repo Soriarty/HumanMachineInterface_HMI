@@ -23,6 +23,7 @@ namespace HM_Interface_Visu.Assets
         public SettingsPage()
         {
             InitializeComponent();
+            this.Name = "Settings";
         }
     }
 }

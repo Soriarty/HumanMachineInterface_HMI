@@ -1,12 +1,40 @@
-﻿<UserControl x:Class="HM_Interface_Visu.Assets.ManualPage"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
              xmlns:local="clr-namespace:HM_Interface_Visu.Assets"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="HM_Interface_Visu.Assets.ManualPage"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="180"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnAxis" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Tengelyek" Foreground="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="0" Margin="1,1,1,0" FontSize="16" Click="btnMenu_Click"/>
+            <Button x:Name="btnPneumathic" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Pneumatika" Grid.Row="0" Grid.Column="1"  Margin="1 1 1 0" IsEnabled="true"  FontSize="16" Click="btnMenu_Click"/>
+            <Button x:Name="btnMFU" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Mérések" Grid.Row="0" Grid.Column="2"  Margin="1 1 1 0" IsEnabled="true"  FontSize="16" Click="btnMenu_Click"/>
+            <Button x:Name="btnOther" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Egyebek" Grid.Row="0" Grid.Column="3"  Margin="1 1 1 0" IsEnabled="True"  FontSize="16" Click="btnMenu_Click"/>
+            <Rectangle Height="5"  x:Name="AxisIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="0"  Margin="0 1 1 0" Visibility="Visible" VerticalAlignment="Bottom"/>
+            <Rectangle Height="5" x:Name="PneumathiclIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="1" Margin="0 1 1 0" Visibility="Visible" VerticalAlignment="Bottom"/>
+            <Rectangle Height="5" x:Name="MFUIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="2" Margin="0 1 1 0" Visibility="Visible" VerticalAlignment="Bottom"/>
+            <Rectangle Height="5" x:Name="OtherIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="3" Margin="0 1 1 0" Visibility="Visible" VerticalAlignment="Bottom"/>
+        </Grid>
+        <DockPanel Grid.Row="1" x:Name="ManualPageSlot">
+        </DockPanel>
     </Grid>
 </UserControl>

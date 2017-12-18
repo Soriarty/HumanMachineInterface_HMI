@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<UserData>
+  <User>
+    <UserName>admin</UserName>
+    <password>100</password>
+    <UserLevel>1</UserLevel>
+  </User>
+  <User>
+    <UserName>engineer</UserName>
+    <password>dqEkZV</password>
+    <UserLevel>2</UserLevel>
+  </User>
+  <User>
+    <UserName>superuser</UserName>
+    <password>q9CXtv</password>
+    <UserLevel>3</UserLevel>
+  </User>
+</UserData>
+
+<!-- 
+-->

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<LanguageElements>
+  <Message>
+    <Key>MainScreen</Key>
+    <Text>Main</Text>
+  </Message>
+  <Message>
+    <Key>ManualScreen</Key>
+    <Text>Manual</Text>
+  </Message>
+  <Message>
+    <Key>SettingsScreen</Key>
+    <Text>Settings</Text>
+  </Message>
+  <Message>
+    <Key>HistoryScreen</Key>
+    <Text>History</Text>
+  </Message>
+  <Message>
+    <Key>Speed</Key>
+    <Text>Speed</Text>
+  </Message>
+  <Message>
+    <Key>LoginMessage</Key>
+    <Text>Please type the username and password to access the maintenance functions.</Text>
+  </Message>
+    <Message>
+    <Key>wrongpass</Key>
+    <Text>Access denied, wrong username or password!</Text>
+  </Message>
+    <Message>
+    <Key>speedmsg</Key>
+    <Text>Type the speed in %(between 1 to 100)</Text>
+  </Message>
+</LanguageElements>

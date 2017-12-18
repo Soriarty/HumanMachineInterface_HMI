@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\App.xaml
-16237552351
+20329631930
 
-202000986526
-19980342912
-Assets\FlyOutMenuButton.xaml;Assets\HistoryPage.xaml;Assets\MainPage.xaml;Assets\ManualPage.xaml;Assets\ParameterInputBox.xaml;Assets\LoginDialogBox.xaml;Assets\MainMenuButton.xaml;Assets\SettingsPage.xaml;MainWindow.xaml;Assets\Notification.xaml;Assets\SampleMessageDialog.xaml;Theme\HMIDesigneOpacityColors.xaml;Theme\HMIDesigneTheme.Custom.StyleDictionary.xaml;Theme\HMIDesigneColor.Default.ColorResource.xaml;Theme\HMIDesigneColor.Default.xaml;Theme\HMIDesigneTheme.Default.xaml;
-
+292121401553
+23-678819707
+Assets\FlyOutMenuButton.xaml;Assets\HistoryPage.xaml;Assets\MainPage.xaml;Assets\ManualPage.xaml;Assets\ManualScreenElements\AxisScreen.xaml;Assets\ManualScreenElements\MFUScreen.xaml;Assets\ManualScreenElements\OtherScreen.xaml;Assets\ManualScreenElements\PneumathicScreen.xaml;Assets\ParameterInputBox.xaml;Assets\LoginDialogBox.xaml;Assets\MainMenuButton.xaml;Assets\SettingsPage.xaml;MainWindow.xaml;Assets\Notification.xaml;Assets\SampleMessageDialog.xaml;Theme\HMIDesigneOpacityColors.xaml;Theme\HMIDesigneTheme.Custom.StyleDictionary.xaml;Theme\HMIDesigneColor.Default.ColorResource.xaml;Theme\HMIDesigneColor.Default.xaml;Theme\HMIDesigneTheme.Default.xaml;
+splashscreen.png
 False
 
