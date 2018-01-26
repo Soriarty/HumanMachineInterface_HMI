@@ -29,7 +29,7 @@ namespace HM_Interface_Visu
     public partial class MainWindow
     {
         
-        AdsCommunication.VariableInfo[] NotificationData;
+        public static AdsCommunication.VariableInfo[] NotificationData;
         SecurityCryption securityCryption = new SecurityCryption("G1FID#iY6j48Q7D");
         private Notification notifiDisplayer;
         public static Snackbar Snackbar;
@@ -51,17 +51,49 @@ namespace HM_Interface_Visu
         {
             this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
         }
-        private object GetReferenceObject(string RefName, AdsCommunication.VariableInfo[] source)
+        public object GetReferenceObject(string RefName, AdsCommunication.VariableInfo[] source)
         {
             AdsCommunication.VariableInfo ResultVariableInfo = Array.Find(source, s => s.Objects.ToString() == RefName);
             return ResultVariableInfo.Objects;
         }
+        public static string GetReferenceAdress(string RefName, AdsCommunication.VariableInfo[] source)
+        {
+            string result = null;
+            for (int index = 0; index <= source.Length; index++)
+            {
+                if (source[index].Objects.ToString().ToLower() == RefName.ToLower()) { result = source[index].VarAdress; break; }
+            }
+            return result;
+        }
+        private int GetIndexOf(string RefName, AdsCommunication.VariableInfo[] source)
+        {
+            int index = -1;
+            bool isValid = false;
+            for (index = 0; index<=source.Length; index++)
+            {
+                if (source[index].Objects.ToString().ToLower() == RefName.ToLower()) { isValid = true; break; }            
+            }
+            if (isValid) return index;
+            else return -1;
+        }
+        private void DisplayError(int ErrorCode)
+        {
+            if(ErrorCode == 8)
+            {
+                string message = "Aktív vészköri megszakítás!";
+                notifiDisplayer.Configuration(message , (SolidColorBrush)FindResource("BaseRedBrush"), true);
+                NotifiSlot.Children.Add(notifiDisplayer);
+            }
+            
+        }
         private void InitializeContent()
-        {            
+        {
+            if (CameraControll.CameraControll.Status == "stoped") CameraControll.CameraControll.StartLiveView(640, 480, null);
             notifiDisplayer = new Notification();
             notifiDisplayer.btnOK.Click += new RoutedEventHandler(CloseNotification_ButtonClick);
-            notifiDisplayer.BaseCard.GotTouchCapture += new EventHandler<TouchEventArgs>(CloseNotification_CardTouch);
-            notifiDisplayer.BaseCard.MouseLeftButtonUp += new MouseButtonEventHandler(CloseNotification_CardClick);
+            //CameraControll.CameraControll.InitCamera();
+            //notifiDisplayer.BaseCard.GotTouchCapture += new EventHandler<TouchEventArgs>(CloseNotification_CardTouch);
+            //notifiDisplayer.BaseCard.MouseLeftButtonUp += new MouseButtonEventHandler(CloseNotification_CardClick);
 
             mainPage = new Assets.MainPage();
             manualPage = new Assets.ManualPage();
@@ -118,7 +150,28 @@ namespace HM_Interface_Visu
                 if (e.UserData == GetReferenceObject("result_angle", NotificationData)) { mainPage.tbAngle.Text = e.Value.ToString(); }
                 if (e.UserData == GetReferenceObject("deprag_program", NotificationData)) { mainPage.tbProgramNumber.Text = e.Value.ToString(); }
                 if (e.UserData == GetReferenceObject("deprag_CycleTime", NotificationData)) { mainPage.tbProcessTime.Text = Math.Round((Single)e.Value, 3).ToString(); }
-                if (e.UserData == GetReferenceObject("message_number", NotificationData)) { }
+                if (e.UserData == GetReferenceObject("OverAllSpeed", NotificationData))
+                {
+                    SpeedBar.Value = (Single)e.Value;
+                    SpeedBox.Text = Math.Round((decimal)(Single)e.Value, 0).ToString() + " %";
+                }
+                if (e.UserData == GetReferenceObject("message_number", NotificationData))
+                {
+                    if(int.Parse(e.Value.ToString()) !=0)
+                    {
+                        AdsCommunication.WriteAny(GetReferenceAdress("confirm", NotificationData), false);
+                        AdsCommunication.WriteAny(GetReferenceAdress("ClearNotifi", NotificationData), false);
+                        DisplayError(int.Parse(e.Value.ToString()));
+
+                    }
+                    
+                }
+
+                if (e.UserData == GetReferenceObject("ClearNotifi", NotificationData) && AdsCommunication.ReadInt(GetReferenceAdress("message_number", NotificationData))==0 && NotifiSlot.Children.Count !=0)
+                {
+                    CloseNotification();
+                    AdsCommunication.WriteAny(GetReferenceAdress("confirm", NotificationData), false);
+                }
             }));
         }
         private async void MenuPopupButton_OnClick(object sender, RoutedEventArgs e)
@@ -163,25 +216,26 @@ namespace HM_Interface_Visu
         }
         private void CloseNotification_ButtonClick(object sender, RoutedEventArgs e)
         {
-            if (notifiDisplayer.btnOK.Opacity == 100) { CloseNotification(); }
 
-        }
-        private void CloseNotification_CardTouch(object sender, TouchEventArgs e)
-        {
-            if (notifiDisplayer.btnOK.Opacity == 0) { CloseNotification(); }
-        }
-        private void CloseNotification_CardClick(object sender, MouseButtonEventArgs e)
-        {
-            if (notifiDisplayer.btnOK.Opacity == 0) { CloseNotification(); }
+            if (notifiDisplayer.btnOK.Opacity == 100 )
+            {
+                AdsCommunication.WriteAny(GetReferenceAdress("confirm", NotificationData), true);
+                //if(AdsCommunication.ReadInt(GetReferenceAdress("message_number", NotificationData)) == 0)
+                //{
+                //    CloseNotification();
+                //}               
+            }
         }
         private void btnControl_Click(object sender, RoutedEventArgs e)
         {           
-            if (!AdsCommunication.ReadBit(NotificationData[0].VarAdress)) { AdsCommunication.WriteAny(NotificationData[0].VarAdress, true); }
-            else { AdsCommunication.WriteAny(NotificationData[0].VarAdress, false); }
+            if (!AdsCommunication.ReadBit(GetReferenceAdress("controll", NotificationData))) { AdsCommunication.WriteAny(GetReferenceAdress("controll", NotificationData), true); }
+            else { AdsCommunication.WriteAny(GetReferenceAdress("controll", NotificationData), false); }
         }
 
         private void btnMainScreen_Click(object sender, RoutedEventArgs e)
         {
+            if (CameraControll.CameraControll.Status != "started")
+            { CameraControll.CameraControll.Sleep(true); }
             WindowViewModel.DisplayPage(mainPage);
         }
 
@@ -192,27 +246,34 @@ namespace HM_Interface_Visu
 
         private void btnSettingsScreen_Click(object sender, RoutedEventArgs e)
         {
+            if (CameraControll.CameraControll.Status != "started")
+            { CameraControll.CameraControll.Sleep(true); }
             WindowViewModel.DisplayPage(settingsPage);
         }
 
         private void btnHistoryScreen_Click(object sender, RoutedEventArgs e)
         {
+            if (CameraControll.CameraControll.Status != "started")
+            { CameraControll.CameraControll.Sleep(true); }
             WindowViewModel.DisplayPage(historyPage);
         }
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
+            if(CameraControll.CameraControll.Status !="stopped")
+            { CameraControll.CameraControll.StopLiveView(); }         
             this.Close();
         }
         private void btnMode_Click(object sender, RoutedEventArgs e)
         {
-            if (!AdsCommunication.ReadBit(NotificationData[1].VarAdress)) { AdsCommunication.WriteAny(NotificationData[1].VarAdress, true); }
-            else { AdsCommunication.WriteAny(NotificationData[1].VarAdress, false); }
+            if (!AdsCommunication.ReadBit(GetReferenceAdress("mode", NotificationData))) { AdsCommunication.WriteAny(GetReferenceAdress("mode", NotificationData), true); }
+            else { AdsCommunication.WriteAny(GetReferenceAdress("mode", NotificationData), false); }
         }
         private void SpeedBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (SpeedBox != null)
             {
                 SpeedBox.Text = Math.Round((decimal)SpeedBar.Value, 0).ToString() + " %";
+                AdsCommunication.WriteAny(GetReferenceAdress("OverAllSpeed", NotificationData), (Single)Math.Round((decimal)SpeedBar.Value, 2));
             }
             
         }
@@ -222,7 +283,7 @@ namespace HM_Interface_Visu
             if (SpeedBar.IsEnabled)
             {
                 var ParameterInput = new Assets.ParameterInputBox();
-                ParameterInput.Message.Text = LanguageHandler.GetMessageResource("speedmrg");
+                ParameterInput.Message.Text = LanguageHandler.GetMessageResource("speedmsg");
                 await DialogHost.Show(ParameterInput, "RootDialog");
 
                 if (ParameterInput.result)
@@ -613,6 +674,7 @@ namespace HM_Interface_Visu
             }
         }
         #endregion
+
     }
 }
 

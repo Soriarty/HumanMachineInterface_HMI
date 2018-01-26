@@ -4,12 +4,12 @@
   <Error>
     <Notification>
       <Code>8</Code>
-      <Description>Ez egy HIBA üzenet XML-ből ErrorCode: #008 </Description>
+      <Description>Aktív vészköri megszakítás!</Description>
       <Confirmation>true</Confirmation>
     </Notification>
     <Notification>
       <Code>15</Code>
-      <Description>Ez egy HIBA üzenet XML-ből ErrorCode: #015</Description>
+      <Description>Ez egy HIBA üzenet XML-ből</Description>
       <Confirmation>true</Confirmation>
     </Notification>
   </Error>
@@ -17,12 +17,12 @@
   <Warning>
     <Notification>
       <Code>201</Code>
-      <Description>Ez egy Figyelmeztető üzenet XML-ből WarningCode: #201</Description>
+      <Description>Ez egy Figyelmeztető üzenet XML-ből</Description>
       <Confirmation>false</Confirmation>
     </Notification>
     <Notification>
       <Code>306</Code>
-      <Description>Ez egy Figyelmeztető üzenet XML-ből WarningCode: #306</Description>
+      <Description>Ez egy Figyelmeztető üzenet XML-ből</Description>
       <Confirmation>false</Confirmation>
     </Notification>
   </Warning>

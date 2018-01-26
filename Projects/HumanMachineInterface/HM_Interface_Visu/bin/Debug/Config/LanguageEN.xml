@@ -13,12 +13,28 @@
     <Text>Settings</Text>
   </Message>
   <Message>
-    <Key>HistoryScreen</Key>
+    <Key>HistoryScreen</Key> <!-- -->
     <Text>History</Text>
   </Message>
   <Message>
     <Key>Speed</Key>
     <Text>Speed</Text>
+  </Message>
+  <Message>
+    <Key>AxisTabText</Key>
+    <Text>Axis</Text>
+  </Message>
+  <Message>
+    <Key>MFUTabText</Key>
+    <Text>MFU</Text>
+  </Message>
+    <Message>
+    <Key>OtherTabText</Key>
+    <Text>Other</Text>
+  </Message>
+    <Message>
+    <Key>PneuTabText</Key>
+    <Text>Pneumathic</Text>
   </Message>
   <Message>
     <Key>LoginMessage</Key>

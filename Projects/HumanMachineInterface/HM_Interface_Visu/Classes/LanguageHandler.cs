@@ -21,6 +21,7 @@ namespace HM_Interface_Visu.Classes
                 string XmlDoc = File.ReadAllText(path);
                 StringReader theReader = new StringReader(XmlDoc);
                 varData.ReadXml(theReader);
+                theReader.Dispose();
             }
             return varData;
         }

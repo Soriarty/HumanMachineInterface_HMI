@@ -34,7 +34,7 @@ namespace HM_Interface_Visu.Classes
             NotificationData = new AdsCommunication.VariableInfo[rowCount];
             for (int index= 0 ; index < rowCount; index++ )
             {
-                NotificationData[index].VarAdress = "MAIN." + loadedData.Tables[0].Rows[index][0].ToString();
+                NotificationData[index].VarAdress = "HMI_Variable." + loadedData.Tables[0].Rows[index][0].ToString();
                 NotificationData[index].Types = Type.GetType(loadedData.Tables[0].Rows[index][1].ToString(), true, true);
                 NotificationData[index].Objects = loadedData.Tables[0].Rows[index][2];
             }

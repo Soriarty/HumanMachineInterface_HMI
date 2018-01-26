@@ -1,35 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <LanguageElements>
   <Message>
-    <Key>MainScreen</Key>
+    <Key>MainScreen</Key> <!--Főképernyő gomb felirata -->
     <Text>Főképernyő</Text>    
   </Message> 
   <Message>
-    <Key>ManualScreen</Key>
+    <Key>ManualScreen</Key> <!--Kézi vezérlés képernyő gomb felirata -->
     <Text>KéziVezérlés</Text>
   </Message> 
   <Message>
-    <Key>SettingsScreen</Key>
+    <Key>SettingsScreen</Key> <!--Beállítóképernyő gomb felirata -->
     <Text>Beállítások</Text>
   </Message>
   <Message>
-    <Key>HistoryScreen</Key>
+    <Key>HistoryScreen</Key> <!--Előzmények képernyő gomb felirata -->
     <Text>Előzmények</Text>
   </Message>
   <Message>
-    <Key>Speed</Key>
+    <Key>Speed</Key> <!--Főképernyő sebesség felirat -->
     <Text>Sebesség</Text>
   </Message>
+    <Message>
+    <Key>AxisTabText</Key> <!--Kézi vezérlés képernyő/tengelyek gomb felirata -->
+    <Text>Tengelyek</Text>
+  </Message>
   <Message>
-    <Key>LoginMessage</Key>
+    <Key>MFUTabText</Key> <!--Kézi vezérlés képernyő/Mérő programok (MFU bunker stb.) gomb felirata -->
+    <Text>Mérések</Text>
+  </Message>
+    <Message>
+    <Key>OtherTabText</Key> <!--Kézi vezérlés képernyő/Egyebek programok (Kamera offset stb.) gomb felirata -->
+    <Text>Egyebek</Text>
+  </Message>
+    <Message>
+    <Key>PneuTabText</Key> <!--Kézi vezérlés képernyő/Pneu mozgatások (Adagolók, megfogók egyépp pneu eszközök) gomb felirata -->
+    <Text>Pneumatika</Text>
+  </Message>
+  <Message>
+    <Key>LoginMessage</Key> <!--Bejelentkező ablak üzenete -->
     <Text>Add meg a felhasználónevet és jelszót a karbantartási funkciók eléréséhez!</Text>
   </Message>
   <Message>
-    <Key>wrongpass</Key>
+    <Key>wrongpass</Key> <!-- Helytelen jelszó üzenet -->
     <Text>Sikertelen bejelentkezés, hibás jelszó vagy felhasználónév!</Text>
   </Message>
     <Message>
-    <Key>speedmsg</Key>
+    <Key>speedmsg</Key> <!--Sebességbeállító ablak üzenete -->
     <Text>Add meg a sebességet %-ban (1 és 100 között!)</Text>
   </Message>
 </LanguageElements> 

@@ -31,6 +31,7 @@ namespace HM_Interface_Visu.Assets
             InitializeComponent();
             this.Name = "Manual";
             ViewModelInitialize();
+            InitialLanguage();
             DisplayPage(Screens[0]);
         }
         public void ViewModelInitialize()
@@ -49,6 +50,13 @@ namespace HM_Interface_Visu.Assets
             Buttons.Add(btnPneumathic);
             Buttons.Add(btnMFU);
             Buttons.Add(btnOther);
+        }
+        public void InitialLanguage()
+        {
+            btnAxis.Content = LanguageHandler.GetMessageResource("AxisTabText");
+            btnPneumathic.Content = LanguageHandler.GetMessageResource("PneuTabText");
+            btnMFU.Content = LanguageHandler.GetMessageResource("MFUTabText");
+            btnOther.Content = LanguageHandler.GetMessageResource("OtherTabText");
         }
         public void DisplayPage(UserControl userControl)
         {

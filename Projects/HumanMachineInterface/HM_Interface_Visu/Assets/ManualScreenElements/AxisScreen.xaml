@@ -3,10 +3,77 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:assets="clr-namespace:HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements"
              xmlns:local="clr-namespace:HM_Interface_Visu.Assets.ManualScreenElements"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="700" d:DesignWidth="1600" Loaded="UserControl_Loaded">
+    
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="855"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="DataGrid" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Margin="5 5 5 5" Grid.Column="0" Grid.Row="0" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                <DockPanel Margin="5 5 5 5" x:Name="Movement">
+                    <assets:MovementModeControll x:Name="MovementControll"></assets:MovementModeControll>
+                </DockPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Margin="5 5 5 5" Grid.Column="0" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch">
+                
+            </materialDesign:Card>
+            <materialDesign:Card Margin="5 5 5 5" Grid.Column="0" Grid.Row="2" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                <DockPanel Margin="5 5 5 5" x:Name="Position">
+                    
+                </DockPanel>
+            </materialDesign:Card>
+        </Grid>
+        <Grid x:Name="CamGrid" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="480"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="640"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Margin="5 5 5 5" Grid.Column="1" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                <DockPanel Margin="5 5 5 5" x:Name="LiveView"/>
+            </materialDesign:Card>
+            <materialDesign:Card Height="100" Margin="5 5 5 5" Grid.Column="1" Grid.Row="0" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                <DockPanel x:Name="Y_Axis">
+                    
+                </DockPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Width="100" Margin="5 5 5 5" Grid.Column="2" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                <DockPanel x:Name="X_Axis">
+                    
+                </DockPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Width="100" Margin="5 5 5 5" Grid.Column="0" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                <DockPanel x:Name="Z_Axis">
+                    
+                </DockPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Height="100" Margin="5 5 5 5" Grid.Column="1" Grid.Row="2" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                <DockPanel x:Name="C_Axis">
+                      
+                </DockPanel>
+            </materialDesign:Card>
+        </Grid>
     </Grid>
 </UserControl>

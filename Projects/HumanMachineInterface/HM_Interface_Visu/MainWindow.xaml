@@ -44,14 +44,13 @@
                 <materialDesign:ColorZone Padding="16" Mode="PrimaryMid" DockPanel.Dock="Top" materialDesign:ShadowAssist.ShadowDepth="Depth3" MinHeight="80" >
                     <DockPanel>
                         <Button x:Name="btnControl" Margin="20,0,0,0" Style="{StaticResource ControllFloatingActionMiniLightButton}" ToolTip="Vezérlés Be/Ki" Width="80" Height="80" Click="btnControl_Click">
-                            <materialDesign:PackIcon Width="70" Height="70" Kind="Play">
+                            <materialDesign:PackIcon Width="70" Height="70" Kind="Power">
                             </materialDesign:PackIcon>
                         </Button>
                         <Button x:Name="btnMode" Margin="20,0,100,0" Style="{StaticResource ControllFloatingActionMiniLightButton}" ToolTip="Automata/Kézi üzemmód" Width="80" Height="80" Click="btnMode_Click">
                             <TextBlock x:Name="btnModeContent" FontSize="48" FontWeight="Bold">M</TextBlock>
                         </Button>
-
-                        <Button Height="80" Width="80" Margin="5 5 5 5" Style="{DynamicResource CustomDesignRaisedDarkButton}" HorizontalAlignment="Right" DockPanel.Dock="Right" Command="Close" >
+                        <Button Height="80" Width="80" Margin="5 5 5 5" Style="{DynamicResource CustomDesignRaisedDarkButton}" HorizontalAlignment="Right" DockPanel.Dock="Right" Command="Close">
                             <materialDesign:PackIcon Height="40" Width="40" Kind="Close"  Foreground="{DynamicResource BaseRedBrush}" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"></materialDesign:PackIcon>
                         </Button>
                         <Button Height="80" Width="80" Margin="5 5 5 5" Style="{DynamicResource CustomDesignRaisedDarkButton}" HorizontalAlignment="Right" DockPanel.Dock="Right" Click="MinimizeButton_Click" >
@@ -61,23 +60,22 @@
                             x:Name="SpeedBar"
                             IsEnabled="False"
 	                        Width="400"
-                            
+                            Style="{DynamicResource MaterialDesignSlider}"                           
 	                        Margin="0,0,100,0"	                        
 	                        Maximum="100"
-	                        Minimum="1"
-	                        Orientation="Horizontal"
                             Foreground="{DynamicResource AccentColorBrush}"                            
                             ToolTip="Overall Speed"
 	                        TickFrequency="10"
 	                        TickPlacement="BottomRight"
-	                        Value="75" 
+                            
+	                        Value="0" 
                             HorizontalContentAlignment="Center" 
                             VerticalContentAlignment="Center" 
                             DockPanel.Dock="Right" 
                             VerticalAlignment="Center" 
                             HorizontalAlignment="Right" 
-                            ValueChanged="SpeedBar_ValueChanged" />
-                        <TextBlock x:Name="SpeedBox" Text="75 %" Margin="5 0 10 0" Width="75.000" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="22" MouseLeftButtonUp="SpeedBox_MouseLeftButtonUp"/>
+                            ValueChanged="SpeedBar_ValueChanged" Minimum="0" />
+                        <TextBlock x:Name="SpeedBox" Text=" %" Margin="5 0 10 0" Width="75.000" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="22" MouseLeftButtonUp="SpeedBox_MouseLeftButtonUp"/>
                         <TextBlock x:Name="lbSpeed" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="22">Sebesség:</TextBlock>
 
                     </DockPanel>

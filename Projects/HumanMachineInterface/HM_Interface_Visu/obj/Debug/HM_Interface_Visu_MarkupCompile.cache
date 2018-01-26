@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\App.xaml
-20329631930
+24814860829
 
-25-1613857404
-23-678819707
-Assets\FlyOutMenuButton.xaml;Assets\HistoryPage.xaml;Assets\MainPage.xaml;Assets\ManualPage.xaml;Assets\ManualScreenElements\AxisScreen.xaml;Assets\ManualScreenElements\MFUScreen.xaml;Assets\ManualScreenElements\OtherScreen.xaml;Assets\ManualScreenElements\PneumathicScreen.xaml;Assets\ParameterInputBox.xaml;Assets\LoginDialogBox.xaml;Assets\MainMenuButton.xaml;Assets\SettingsPage.xaml;MainWindow.xaml;Assets\Notification.xaml;Assets\SampleMessageDialog.xaml;Theme\HMIDesigneOpacityColors.xaml;Theme\HMIDesigneTheme.Custom.StyleDictionary.xaml;Theme\HMIDesigneColor.Default.ColorResource.xaml;Theme\HMIDesigneColor.Default.xaml;Theme\HMIDesigneTheme.Default.xaml;
+30198942342
+31228672856
+Assets\EmergencyDisplayer.xaml;Assets\FlyOutMenuButton.xaml;Assets\HistoryPage.xaml;Assets\MainPage.xaml;Assets\ManualPage.xaml;Assets\ManualScreenElements\AxisScreen.xaml;Assets\ManualScreenElements\AxisScreenElements\CameraControll.xaml;Assets\ManualScreenElements\AxisScreenElements\MovementModeControll.xaml;Assets\ManualScreenElements\AxisScreenElements\PositionControll.xaml;Assets\ManualScreenElements\MFUScreen.xaml;Assets\ManualScreenElements\OtherScreen.xaml;Assets\ManualScreenElements\PneumathicScreen.xaml;Assets\ParameterInputBox.xaml;Assets\LoginDialogBox.xaml;Assets\MainMenuButton.xaml;Assets\SettingsPage.xaml;MainWindow.xaml;Assets\Notification.xaml;Assets\SampleMessageDialog.xaml;Theme\HMIDesigneOpacityColors.xaml;Theme\HMIDesigneTheme.Custom.StyleDictionary.xaml;Theme\HMIDesigneColor.Default.ColorResource.xaml;Theme\HMIDesigneColor.Default.xaml;Theme\HMIDesigneTheme.Default.xaml;
 splashscreen.png
 False
 
