@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <GVL Name="HMI_Variable" Id="{b77c559e-1400-4d78-a6ad-1974bd0e9f0a}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	in_speedstep: INT:= 1;
+	in_speed: INT:= 5;
+	in_maxcount: INT:= 100;
+	in_increment: INT:= 1;	
+	incerement: INT:= 1;
+	b_IncrementNow: BOOL;
+	//-----------------------------------
+	b_Controll: BOOL:= FALSE;
+	b_ModeSelect: BOOL:= FALSE;
+	b_ConfirmNotifi: BOOL:= FALSE;
+	b_ClearNotifi: Bool:= false;
+	b_LightGrid: BOOL:= TRUE;
+	b_EmSwitch: BOOL:= TRUE;
+	b_ScrewDoor: BOOL:= TRUE;
+	i_OverAllSpeed2: REAL:= 76.86;
+	b_ManualMovementMode: BOOL:= TRUE;
+	//----------------------------------
+	i_DepragStatus: INT:= 1;
+	i_DepragStep: INT:= 2;
+	r_DepragTorque: REAL:= 0.86;
+	i_DepragAngle: INT:= 56;
+	i_DepragProgramNR: INT:= 28;
+	r_DepragCycleTime: REAL:= 1.3;
+	i_ErrorMessage: INT:= 0;
+	//-----------------------------------
+	t_temp: INT:= 0;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

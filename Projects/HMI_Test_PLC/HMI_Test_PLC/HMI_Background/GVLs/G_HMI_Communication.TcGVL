@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <GVL Name="G_HMI_Communication" Id="{3c0d1cba-c932-4e1c-8321-5a7a065ca903}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	xControll: BOOL:= FALSE;
+	xAutoMode: BOOL:= FALSE;
+	xConfirmNotifi: BOOL:= FALSE;
+	xLightGrid: BOOL:= TRUE;
+	xEmSwitch: BOOL:= TRUE;
+	xScrewDoor: BOOL:= TRUE;
+	iOverAllSpeed: REAL:= 76.86;
+	
+	xAxisXpositive: BOOL:= FALSE;
+	xAxisYpositive: BOOL:= FALSE;
+	xAxisZpositive: BOOL:= FALSE;
+	xAxisCpositive: BOOL:= FALSE;
+	
+	xAxisXnegative: BOOL:= FALSE;
+	xAxisYnegative: BOOL:= FALSE;
+	xAxisZnegative: BOOL:= FALSE;
+	xAxisCnegative: BOOL:= FALSE;
+	
+	//----------------------------------
+	iDepragStatus: INT:= 1;
+	iDepragStep: INT:= 2;
+	rDepragTorque: REAL:= 0.86;
+	iDepragAngle: INT:= 56;
+	iDepragProgramNR: INT:= 28;
+	rDepragCycleTime: REAL:= 1.3;
+	iErrorMessage: INT:= 0;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

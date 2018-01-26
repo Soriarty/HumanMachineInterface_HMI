@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="ArrayFiller_P" Id="{850563d3-ae42-4cd0-9308-e4a7bf87193a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION ArrayFiller_P : ARRAY [0..99] OF INT
+VAR_INPUT
+END_VAR
+VAR
+	_TempArry : ARRAY [0..99] OF INT;
+ 	Index: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR Index := 0 TO 99 DO
+  _TempArry [Index] := 2500 + INDEX;
+END_FOR
+ArrayFiller_P := _TempArry;]]></ST>
+    </Implementation>
+    <LineIds Name="ArrayFiller_P">
+      <LineId Id="8" Count="2" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

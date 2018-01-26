@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="cycl_change" Id="{26e569ac-8463-4eef-bb66-3bbe3f6745ca}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION cycl_change : INT
+VAR_INPUT
+	i_cycle_int: INT;
+	i_increment: INT;
+END_VAR
+VAR
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+i_cycle_int := i_cycle_int + i_increment;
+cycl_change := i_cycle_int;
+]]></ST>
+    </Implementation>
+    <LineIds Name="cycl_change">
+      <LineId Id="12" Count="1" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="16" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

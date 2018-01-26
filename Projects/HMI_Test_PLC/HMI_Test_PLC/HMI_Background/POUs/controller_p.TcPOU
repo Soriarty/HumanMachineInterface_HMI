@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
+  <POU Name="controller_p" Id="{749bdadd-d2e5-4dc7-ab57-4c0ea94e0d9c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK controller_p
+VAR_INPUT
+	b_start: BOOL;
+	t_time: TIME;
+END_VAR		
+VAR_OUTPUT
+	x_trigger: BOOL;
+END_VAR
+VAR
+	fb_Pulse1: TP;
+	fb_Pulse2: TP;
+	fb_ftrig1: F_TRIG;
+	fb_ftrig2: F_TRIG;
+	b_StartTimer1: BOOL;
+	b_StartTimer2: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF b_start THEN
+	fb_Pulse1(IN:=b_StartTimer1,PT:=t_time);
+	fb_Pulse2(IN:=b_StartTimer2,PT:=t_time);
+	
+	fb_ftrig1.CLK:= fb_Pulse1.Q;
+	fb_ftrig2.CLK:= fb_Pulse2.Q;
+	
+	IF NOT fb_Pulse1.Q AND NOT fb_Pulse2.Q THEN
+		b_StartTimer1:= TRUE;
+		b_StartTimer2:= FALSE;
+		
+	ELSIF fb_ftrig1.Q THEN
+		b_StartTimer1:= FALSE;
+		b_StartTimer2:= TRUE;
+		
+	ELSIF fb_ftrig2.Q THEN
+		b_StartTimer1:= TRUE;
+		b_StartTimer2:= FALSE;
+	END_IF
+	
+ELSE
+	b_StartTimer1:= FALSE;
+	b_StartTimer2:= FALSE;
+	x_trigger:= FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="controller_p">
+      <LineId Id="41" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="48" Count="1" />
+      <LineId Id="51" Count="1" />
+      <LineId Id="46" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
