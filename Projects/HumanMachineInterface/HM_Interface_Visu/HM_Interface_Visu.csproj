@@ -74,7 +74,7 @@
     </Reference>
     <Reference Include="TwinCAT.Ads, Version=4.2.141.0, Culture=neutral, PublicKeyToken=180016cd49e5e8c3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\TwinCAT.Ads.dll</HintPath>
+      <HintPath>bin\Debug\Libraries\TwinCAT.Ads.dll</HintPath>
     </Reference>
     <Reference Include="uEyeDotNet">
       <HintPath>bin\Debug\Libraries\uEyeDotNet.dll</HintPath>
