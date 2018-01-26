@@ -283,13 +283,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="background.png" />
+    <Resource Include="Pictures\background.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="MainWindow_temp.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Harman_Logo.png" />
+    <Resource Include="Pictures\Harman_Logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ConfigFiles\ErrorCodesHU.xml" />
@@ -307,7 +307,7 @@
     <Resource Include="WindowIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="SplashScreen.png" />
+    <SplashScreen Include="Pictures\SplashScreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
