@@ -11,6 +11,7 @@ using System.IO;
 using System;
 using HM_Interface_Visu.Classes;
 using TwinCAT.Ads;
+using CameraControll;
 using System.Windows.Interop;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
@@ -28,10 +29,16 @@ namespace HM_Interface_Visu
 
     public partial class MainWindow
     {
-        
+        [DllImport("kernel32.dll", EntryPoint = "GlobalAddAtomA", CharSet = CharSet.Ansi)]
+        static extern UInt16 GlobalAddAtom(string lpString);
+
+        [DllImport("user32.dll", EntryPoint = "SetPropA", CharSet = CharSet.Ansi)]
+        static extern UInt32 SetProp(IntPtr hWnd, UInt32 lpString, UInt32 hData);
+
         public static AdsCommunication.VariableInfo[] NotificationData;
         SecurityCryption securityCryption = new SecurityCryption("G1FID#iY6j48Q7D");
         private Notification notifiDisplayer;
+
         public static Snackbar Snackbar;
         private static Assets.LoginDialogBox LoginDialog;
         private static Assets.MainPage mainPage;
@@ -88,13 +95,13 @@ namespace HM_Interface_Visu
         }
         private void InitializeContent()
         {
-            if (CameraControll.CameraControll.Status == "stoped") CameraControll.CameraControll.StartLiveView(640, 480, null);
             notifiDisplayer = new Notification();
             notifiDisplayer.btnOK.Click += new RoutedEventHandler(CloseNotification_ButtonClick);
-            //CameraControll.CameraControll.InitCamera();
-            //notifiDisplayer.BaseCard.GotTouchCapture += new EventHandler<TouchEventArgs>(CloseNotification_CardTouch);
-            //notifiDisplayer.BaseCard.MouseLeftButtonUp += new MouseButtonEventHandler(CloseNotification_CardClick);
-
+            uEye_Handler.InitializeCamera();
+            if (uEye_Handler.CameraResult.Status != "Initialized")
+            {
+                MessageBox.Show(uEye_Handler.CameraResult.ErrorDescription + "\n\n ErrorCode: " + uEye_Handler.CameraResult.ErrorCode, "Camera Connection Error!");
+            }
             mainPage = new Assets.MainPage();
             manualPage = new Assets.ManualPage();
             settingsPage = new Assets.SettingsPage();
@@ -120,6 +127,9 @@ namespace HM_Interface_Visu
         {
             IntPtr handle = (new WindowInteropHelper(this)).Handle;
             HwndSource.FromHwnd(handle).AddHook(NativeMethods.MaximizedSizeFixWindowProc);
+
+            UInt16 atom = GlobalAddAtom("MicrosoftTabletPenServiceProperty");
+            if (atom != 0) SetProp(handle, (UInt32)atom, 1);
         }
         public void TwinCat3Client_AdsNotificationEx(object sender, AdsNotificationExEventArgs e)
         {
@@ -150,10 +160,10 @@ namespace HM_Interface_Visu
                 if (e.UserData == GetReferenceObject("result_angle", NotificationData)) { mainPage.tbAngle.Text = e.Value.ToString(); }
                 if (e.UserData == GetReferenceObject("deprag_program", NotificationData)) { mainPage.tbProgramNumber.Text = e.Value.ToString(); }
                 if (e.UserData == GetReferenceObject("deprag_CycleTime", NotificationData)) { mainPage.tbProcessTime.Text = Math.Round((Single)e.Value, 3).ToString(); }
-                if (e.UserData == GetReferenceObject("OverAllSpeed", NotificationData))
+                if (e.UserData == GetReferenceObject("Override", NotificationData))
                 {
-                    SpeedBar.Value = (Single)e.Value;
-                    SpeedBox.Text = Math.Round((decimal)(Single)e.Value, 0).ToString() + " %";
+                    SpeedBar.Value = (Double)e.Value;
+                    SpeedBox.Text = Math.Round((decimal)(Double)e.Value, 0).ToString() + " %";
                 }
                 if (e.UserData == GetReferenceObject("message_number", NotificationData))
                 {
@@ -234,8 +244,10 @@ namespace HM_Interface_Visu
 
         private void btnMainScreen_Click(object sender, RoutedEventArgs e)
         {
-            if (CameraControll.CameraControll.Status != "started")
-            { CameraControll.CameraControll.Sleep(true); }
+            if(uEye_Handler.CameraResult.Status == "Live")
+            {            
+                uEye_Handler.StopLiveView();
+            }
             WindowViewModel.DisplayPage(mainPage);
         }
 
@@ -246,21 +258,24 @@ namespace HM_Interface_Visu
 
         private void btnSettingsScreen_Click(object sender, RoutedEventArgs e)
         {
-            if (CameraControll.CameraControll.Status != "started")
-            { CameraControll.CameraControll.Sleep(true); }
+            if (uEye_Handler.CameraResult.Status == "Live")
+            {
+                uEye_Handler.StopLiveView();
+            }
             WindowViewModel.DisplayPage(settingsPage);
         }
 
         private void btnHistoryScreen_Click(object sender, RoutedEventArgs e)
         {
-            if (CameraControll.CameraControll.Status != "started")
-            { CameraControll.CameraControll.Sleep(true); }
+            if (uEye_Handler.CameraResult.Status == "Live")
+            {
+                uEye_Handler.StopLiveView();
+            }
             WindowViewModel.DisplayPage(historyPage);
         }
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
-            if(CameraControll.CameraControll.Status !="stopped")
-            { CameraControll.CameraControll.StopLiveView(); }         
+            uEye_Handler.StopLiveView();
             this.Close();
         }
         private void btnMode_Click(object sender, RoutedEventArgs e)
@@ -273,7 +288,7 @@ namespace HM_Interface_Visu
             if (SpeedBox != null)
             {
                 SpeedBox.Text = Math.Round((decimal)SpeedBar.Value, 0).ToString() + " %";
-                AdsCommunication.WriteAny(GetReferenceAdress("OverAllSpeed", NotificationData), (Single)Math.Round((decimal)SpeedBar.Value, 2));
+                AdsCommunication.WriteAny(GetReferenceAdress("Override", NotificationData), (Double)Math.Round((decimal)SpeedBar.Value, 2));
             }
             
         }
@@ -290,7 +305,7 @@ namespace HM_Interface_Visu
                 {
                     if ((ParameterInput.Parameter.Text != null) && (ParameterInput.Parameter.Text != ""))
                     {
-                        if ((int.Parse(ParameterInput.Parameter.Text) > 0 && int.Parse(ParameterInput.Parameter.Text) <= 100))
+                        if ((float.Parse(ParameterInput.Parameter.Text) > 0 && float.Parse(ParameterInput.Parameter.Text) <= 100))
                         {
                             SpeedBar.Value = float.Parse(ParameterInput.Parameter.Text);
                             SpeedBox.Text = float.Parse(ParameterInput.Parameter.Text).ToString() + " %";

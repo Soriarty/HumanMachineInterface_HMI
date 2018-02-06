@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:assets="clr-namespace:HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"           
              xmlns:local="clr-namespace:HM_Interface_Visu.Assets.ManualScreenElements"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1600" Loaded="UserControl_Loaded">
@@ -32,11 +32,13 @@
                 </DockPanel>
             </materialDesign:Card>
             <materialDesign:Card Margin="5 5 5 5" Grid.Column="0" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch">
-                
+                <DockPanel Margin="5 5 5 5" x:Name="Camera">
+                    <assets:CameraControll x:Name="CameraControll"></assets:CameraControll>
+                </DockPanel>
             </materialDesign:Card>
             <materialDesign:Card Margin="5 5 5 5" Grid.Column="0" Grid.Row="2" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
                 <DockPanel Margin="5 5 5 5" x:Name="Position">
-                    
+                    <assets:PositionControll x:Name="PositionContorll"></assets:PositionControll>
                 </DockPanel>
             </materialDesign:Card>
         </Grid>
@@ -52,7 +54,9 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <materialDesign:Card Margin="5 5 5 5" Grid.Column="1" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
-                <DockPanel Margin="5 5 5 5" x:Name="LiveView"/>
+                <DockPanel Margin="5 5 5 5" x:Name="LiveView">
+                    <Image x:Name="LiveImage"></Image>
+                </DockPanel>
             </materialDesign:Card>
             <materialDesign:Card Height="100" Margin="5 5 5 5" Grid.Column="1" Grid.Row="0" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">
                 <DockPanel x:Name="Y_Axis">

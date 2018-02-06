@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CameraControll;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,65 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
     /// </summary>
     public partial class CameraControll : UserControl
     {
+        private bool OffsetIsOn = true;
+        private DateTime click_Started;
+        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
         public CameraControll()
         {
-            InitializeComponent();
+            InitializeComponent();          
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0,0,0,0, 100);
+        }
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            Save.Content = Math.Round((DateTime.Now - click_Started).TotalSeconds, 0).ToString();
+            if (Save.Content as string == "10")
+            {
+                dispatcherTimer.Stop();
+                Save.Content = "Offset Save";
+                Save.Foreground = FindResource("AccentColorBrush") as SolidColorBrush;
+            }
+        }
+
+        private void Save_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Save.Foreground = (FindResource("PrimaryHueLightBrush") as SolidColorBrush);
+            click_Started = DateTime.Now;
+            dispatcherTimer.Start();
+        }
+
+        private void Save_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if ((DateTime.Now - click_Started).TotalSeconds > 10)
+            {
+                dispatcherTimer.Stop();
+                Save.Content = "Offset Save";
+                Save.Foreground = FindResource("AccentColorBrush") as SolidColorBrush;
+            }
+            else
+            {
+                dispatcherTimer.Stop();
+                Save.Content = "Offset Save";                
+            }
+        }
+
+        public void CameraOn_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void OffSet_Click(object sender, RoutedEventArgs e)
+        {
+            if (OffsetIsOn)
+            {
+                OffSet.Foreground = FindResource("AccentColorBrush") as SolidColorBrush;
+                DisplayPanel.IsEnabled = true;
+                OffsetIsOn = false;
+            }
+            else
+            {
+                OffSet.Foreground = FindResource("PrimaryHueLightBrush") as SolidColorBrush;
+                OffsetIsOn = true;
+            }
         }
     }
 }

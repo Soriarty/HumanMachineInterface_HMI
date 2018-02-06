@@ -2,97 +2,97 @@
 <VariableData>
 	
   <Var>
-    <adress>b_Controll</adress>
+    <adress>G_xHMIControl</adress>
     <type>System.Boolean</type>
     <object>controll</object>
   </Var>
 
   <Var>
-    <adress>b_ModeSelect</adress>
+    <adress>G_xHMIAutoMod</adress>
     <type>System.Boolean</type>
     <object>mode</object>
   </Var>
 
   <Var>
-    <adress>i_DepragStatus</adress>
+    <adress>G_nHMIDepragStatus</adress>
     <type>System.Int16</type>
     <object>deprag_status</object>
   </Var>
 
   <Var>
-    <adress>i_DepragStep</adress>
+    <adress>G_nHMIDepragStep</adress>
     <type>System.Int16</type>
     <object>deprag_step</object>
   </Var>
 
   <Var>
-    <adress>r_DepragTorque</adress>
+    <adress>G_rHMIDepragTorque</adress>
     <type>	System.Single</type>
     <object>result_torque</object>
   </Var>
 
   <Var>
-    <adress>i_DepragAngle</adress>
+    <adress>G_nHMIDepragAngle</adress>
     <type>System.Int16</type>
     <object>result_angle</object>
   </Var>
 
   <Var>
-    <adress>i_DepragProgramNR</adress>
+    <adress>G_nHMIDepragProgramNR</adress>
     <type>System.Int16</type>
     <object>deprag_program</object>
   </Var>
 
   <Var>
-    <adress>r_DepragCycleTime</adress>
+    <adress>G_nHMIDepragCycleTime</adress>
     <type>System.Single</type>
     <object>deprag_CycleTime</object>
   </Var>
 
   <Var>
-	<adress>i_ErrorMessage</adress>
+	<adress>G_nHMIErrMessage</adress>
     <type>System.Int16</type>
     <object>message_number</object>
   </Var>
 
   <Var>
-    <adress>i_OverAllSpeed2</adress>
-    <type>System.Single</type>
-    <object>OverAllSpeed</object>
+    <adress>G_lrHMIOverride</adress>
+    <type>System.Double</type>
+    <object>Override</object>
   </Var>
 
   <Var>
-    <adress>b_ConfirmNotifi</adress>
+    <adress>G_xHMIErrorAck</adress>
     <type>System.Boolean</type>
     <object>confirm</object>
   </Var>
 
   <Var>
-    <adress>b_LightGrid</adress>
+    <adress>G_xHMILightGriDOK</adress>
     <type>System.Boolean</type>
     <object>LightGrid</object>
   </Var>
 
   <Var>
-    <adress>b_EmSwitch</adress>
+    <adress>G_xHMIEStopOK</adress>
     <type>System.Boolean</type>
     <object>EmergencySwitch</object>
   </Var>
   
   <Var>
-    <adress>b_ScrewDoor</adress>
+    <adress>G_xHMIBackDoor</adress>
     <type>System.Boolean</type>
     <object>ScrewDoor</object>
   </Var>
 
-    <Var>
-    <adress>b_ManualMovementMode</adress>
+      <Var>
+    <adress>G_xHMIManualMovementMode</adress>
     <type>System.Boolean</type>
     <object>ManualMovementMode</object>
   </Var>
 
-     <Var>
-    <adress>b_ClearNotifi</adress>
+     <Var> 
+    <adress>G_xHMIClearNotifi</adress>
     <type>System.Boolean</type>
     <object>ClearNotifi</object>
   </Var> 

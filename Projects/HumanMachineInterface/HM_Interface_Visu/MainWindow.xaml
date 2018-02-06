@@ -75,7 +75,7 @@
                             VerticalAlignment="Center" 
                             HorizontalAlignment="Right" 
                             ValueChanged="SpeedBar_ValueChanged" Minimum="0" />
-                        <TextBlock x:Name="SpeedBox" Text=" %" Margin="5 0 10 0" Width="75.000" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="22" MouseLeftButtonUp="SpeedBox_MouseLeftButtonUp"/>
+                        <TextBlock x:Name="SpeedBox" Text="0 %" Margin="5 0 10 0" Width="75.000" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="22" MouseLeftButtonUp="SpeedBox_MouseLeftButtonUp"/>
                         <TextBlock x:Name="lbSpeed" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="22">Sebesség:</TextBlock>
 
                     </DockPanel>

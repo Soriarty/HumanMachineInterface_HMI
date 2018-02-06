@@ -68,7 +68,8 @@ namespace HM_Interface_Visu.Classes
                         if (NotificationData[index].Types == typeof(Int16)) AddDIntNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
                         if (NotificationData[index].Types == typeof(Byte)) AddUIntNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
                         if (NotificationData[index].Types == typeof(Boolean)) AddBoolNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
-                        if (NotificationData[index].Types == typeof(float)) AddRealNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
+                        if (NotificationData[index].Types == typeof(Single)) AddRealNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
+                        if (NotificationData[index].Types == typeof(Double)) AddLongRealNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles);
                         if (NotificationData[index].Types == typeof(String)) AddStringNotification(NotificationData[index].VarAdress, NotificationData[index].Objects, TwinCat3Client, NotificationHandles, maxStringLenght);
                     }
                 }
@@ -95,7 +96,11 @@ namespace HM_Interface_Visu.Classes
         }
         private static void AddRealNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
         {
-            NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(float)));
+             NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(Single)));
+        }
+        private static void AddLongRealNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection)
+        {
+            NotifiCollection.Add(adsClient.AddDeviceNotificationEx(VariableAdress, AdsTransMode.OnChange, 100, 0, i_Controller, typeof(Double)));
         }
         private static void AddStringNotification(string VariableAdress, object i_Controller, TcAdsClient adsClient, ArrayList NotifiCollection, int MaxChar)
         {
@@ -180,6 +185,28 @@ namespace HM_Interface_Visu.Classes
                 TwinCat3Client.Read(hVar, ADSdataStream);
                 ADSdataStream.Position = 0;
                 result = binRead.ReadSingle();
+                TwinCat3Client.DeleteVariableHandle(hVar);
+                hVar = 0;
+                ADSdataStream.Dispose();
+                binRead.Dispose();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            return result;
+        }
+        public static double ReadLongReal(string VarAdress)
+        {
+            double result = 0;
+            try
+            {
+                hVar = TwinCat3Client.CreateVariableHandle(VarAdress);
+                AdsStream ADSdataStream = new AdsStream(8);
+                BinaryReader binRead = new BinaryReader(ADSdataStream);
+                TwinCat3Client.Read(hVar, ADSdataStream);
+                ADSdataStream.Position = 0;
+                result = binRead.ReadDouble();
                 TwinCat3Client.DeleteVariableHandle(hVar);
                 hVar = 0;
                 ADSdataStream.Dispose();

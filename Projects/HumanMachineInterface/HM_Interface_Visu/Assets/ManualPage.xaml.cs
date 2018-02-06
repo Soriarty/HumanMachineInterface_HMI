@@ -1,4 +1,5 @@
-﻿using HM_Interface_Visu.Classes;
+﻿using CameraControll;
+using HM_Interface_Visu.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,6 +89,13 @@ namespace HM_Interface_Visu.Assets
         private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             if (((ButtonBase)sender) == btnAxis) DisplayPage(Screens[0]);
+            if (((ButtonBase)sender) != btnAxis)
+            {
+                if (uEye_Handler.CameraResult.Status == "Live")
+                {
+                    uEye_Handler.StopLiveView();
+                }
+            }
             if (((ButtonBase)sender) == btnPneumathic) DisplayPage(Screens[1]);
             if (((ButtonBase)sender) == btnMFU) DisplayPage(Screens[2]);
             if (((ButtonBase)sender) == btnOther) DisplayPage(Screens[3]);

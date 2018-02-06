@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HM_Interface_Visu", "HM_Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraControll", "CameraControll\CameraControll.csproj", "{CAC50BEE-1209-43F2-A302-D46614DA757C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamerTesterClient", "CamerTesterClient\CamerTesterClient.csproj", "{5EA29EA8-3475-43DD-9A82-A4469950982F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CAC50BEE-1209-43F2-A302-D46614DA757C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC50BEE-1209-43F2-A302-D46614DA757C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC50BEE-1209-43F2-A302-D46614DA757C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA29EA8-3475-43DD-9A82-A4469950982F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA29EA8-3475-43DD-9A82-A4469950982F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA29EA8-3475-43DD-9A82-A4469950982F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA29EA8-3475-43DD-9A82-A4469950982F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
