@@ -116,11 +116,23 @@
     <Compile Include="Assets\ManualScreenElements\AxisScreenElements\CameraControll.xaml.cs">
       <DependentUpon>CameraControll.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\C_Axis_Panel.xaml.cs">
+      <DependentUpon>C_Axis_Panel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\ManualScreenElements\AxisScreenElements\MovementModeControll.xaml.cs">
       <DependentUpon>MovementModeControll.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\ManualScreenElements\AxisScreenElements\PositionControll.xaml.cs">
       <DependentUpon>PositionControll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\X_Axis_Panel.xaml.cs">
+      <DependentUpon>X_Axis_Panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\Y_Axis_Panel.xaml.cs">
+      <DependentUpon>Y_Axis_Panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\Z_Axis_Panel.xaml.cs">
+      <DependentUpon>Z_Axis_Panel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\ManualScreenElements\MFUScreen.xaml.cs">
       <DependentUpon>MFUScreen.xaml</DependentUpon>
@@ -165,11 +177,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\C_Axis_Panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\ManualScreenElements\AxisScreenElements\MovementModeControll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\ManualScreenElements\AxisScreenElements\PositionControll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\X_Axis_Panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\Y_Axis_Panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\Z_Axis_Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

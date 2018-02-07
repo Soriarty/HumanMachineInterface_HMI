@@ -250,3 +250,11 @@ E:\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\ob
 E:\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\HM_Interface_Visu.exe
 E:\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\HM_Interface_Visu.pdb
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\bin\Debug\CameraControll.dll
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\C_Axis_Panel.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\X_Axis_Panel.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\Z_Axis_Panel.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\Y_Axis_Panel.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\C_Axis_Panel.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\X_Axis_Panel.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\Z_Axis_Panel.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\Y_Axis_Panel.baml
