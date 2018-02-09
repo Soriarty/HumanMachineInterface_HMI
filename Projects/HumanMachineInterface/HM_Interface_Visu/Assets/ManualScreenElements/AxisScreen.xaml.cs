@@ -27,6 +27,10 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements
     {        
         public AxisScreen()
         {
+            if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+            {
+                return;
+            }
             InitializeComponent();
             Name = "Axis";
             CameraControll.CameraOn.Click += new RoutedEventHandler(CameraCotnrollCameraOn_Click);
@@ -35,12 +39,12 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements
         {
             if (uEye_Handler.CameraResult.Status == "Initialized" || uEye_Handler.CameraResult.Status == "Sleep")
             {
-                CameraControll.CameraOn.Foreground = (FindResource("AccentColorBrush") as SolidColorBrush);
+                CameraControll.CameraOn.Foreground = (FindResource("PrimaryHueLightBrush") as SolidColorBrush);
                 uEye_Handler.StartLiveView(LiveImage);
             }
             else if (uEye_Handler.CameraResult.Status == "Live")
             {
-                CameraControll.CameraOn.Foreground = (FindResource("PrimaryHueLightBrush") as SolidColorBrush);
+                CameraControll.CameraOn.Foreground = (FindResource("AccentColorBrush") as SolidColorBrush);
                 uEye_Handler.StopLiveView();
                 LiveImage.Source = null;
             }

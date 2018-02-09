@@ -9,11 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using HM_Interface_Visu.Assets.ManualScreenElements;
-using HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements;
-using MaterialDesignThemes.MahApps;
-using MaterialDesignThemes.Wpf;
-using MaterialDesignThemes.Wpf.Transitions;
 using System;
 using System.Diagnostics;
 using System.Windows;

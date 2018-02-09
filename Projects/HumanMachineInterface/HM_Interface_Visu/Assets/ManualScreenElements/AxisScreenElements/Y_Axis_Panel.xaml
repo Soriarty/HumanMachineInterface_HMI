@@ -3,10 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="70" d:DesignWidth="640" Loaded="UserControl_Loaded">
     <Grid>
-            
+        <DockPanel>
+            <Button x:Name="Y_Positive" Margin="5 5 5 5" Height="80" Width="80" HorizontalAlignment="Left" PreviewMouseLeftButtonDown="Y_Positive_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="Y_Positive_PreviewMouseLeftButtonUp">
+                <materialDesign:PackIcon Width="40" Height="40" Kind="ArrowLeftBold">
+                </materialDesign:PackIcon>
+            </Button>
+            <Button x:Name="Y_Negative" Margin="5 5 5 5" Height="80" DockPanel.Dock="Right" Width="80" HorizontalAlignment="Right" PreviewMouseLeftButtonDown="Y_Negative_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="Y_Negative_PreviewMouseLeftButtonUp">
+                <materialDesign:PackIcon Width="40" Height="40" Kind="ArrowRightBold">
+                </materialDesign:PackIcon>
+            </Button>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Margin="5 5 5 5" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}">
+                        <TextBlock Margin="5 5 5 5" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Current:</TextBlock>
+                    </Border>
+                    <Border Grid.Row="1" BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}">
+                        <TextBlock x:Name="CurrentPos" Margin="5 5 5 5" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">185.45</TextBlock>
+                    </Border>
+                </Grid>
+                <Grid Margin="5 5 5 5" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}">
+                        <TextBlock Margin="5 5 5 5" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Target:</TextBlock>
+                    </Border>
+                    <Border Grid.Row="1" BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}">
+                        <TextBlock x:Name="TargetPos" Margin="5 5 5 5" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">215.14</TextBlock>
+                    </Border>
+                </Grid>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Y Axis</TextBlock>
+            </Grid>
+        </DockPanel>
     </Grid>
 </UserControl>

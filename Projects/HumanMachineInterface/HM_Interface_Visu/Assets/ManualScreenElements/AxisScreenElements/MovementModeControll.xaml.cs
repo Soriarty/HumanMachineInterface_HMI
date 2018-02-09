@@ -1,4 +1,5 @@
 ﻿using HM_Interface_Visu.Classes;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,19 +26,43 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
         {
             InitializeComponent();
         }
-
+        private void InitLanguage()
+        {
+            SpeedBox.Text = LanguageHandler.GetMessageResource("ContSpeed") + "0 %";
+        }
+        private void InitData()
+        {
+            SpeedBar.Value = AdsCommunication.ReadLongReal(MainWindow.GetReferenceAdress("continousOverride", MainWindow.NotificationData));
+            switch(AdsCommunication.ReadLongReal(MainWindow.GetReferenceAdress("StepSize", MainWindow.NotificationData))*10)
+            {
+                case 1:
+                    StepSize.SelectedIndex = 0;
+                    break;
+                case 2:
+                    StepSize.SelectedIndex = 1;
+                    break;
+                case 5:
+                    StepSize.SelectedIndex = 2;
+                    break;
+                case 10:
+                    StepSize.SelectedIndex = 3;
+                    break;
+                default:                 
+                    break;
+            }
+        }
         public void SetStatement(bool state)
         {
             if (state)
             {
-                MovementModeSelect.Content = "Continous";
-                ContinousSpeed.IsEnabled = true;
+                MovementModeSelect.Content = LanguageHandler.GetMessageResource("btnContinous");
+                SpeedBar.IsEnabled = true;
                 StepSize.IsEnabled = false;
             }
             else
             {
-                MovementModeSelect.Content = "Step";
-                ContinousSpeed.IsEnabled = false;
+                MovementModeSelect.Content = LanguageHandler.GetMessageResource("btnStep");
+                SpeedBar.IsEnabled = false;
                 StepSize.IsEnabled = true;
             }
             AdsCommunication.WriteAny(MainWindow.GetReferenceAdress("ManualMovementMode", MainWindow.NotificationData), state);
@@ -45,7 +70,7 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
 
         private void MovementModeSelect_Click(object sender, RoutedEventArgs e)
         {
-            if ((string)MovementModeSelect.Content == "Continous")
+            if (AdsCommunication.ReadBit(MainWindow.GetReferenceAdress("ManualMovementMode", MainWindow.NotificationData)))
             {
                 SetStatement(false);
             }
@@ -56,9 +81,61 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            StepSize.SelectedIndex = 0;
+        {          
             SetStatement(AdsCommunication.ReadBit(MainWindow.GetReferenceAdress("ManualMovementMode", MainWindow.NotificationData)));
+            InitLanguage();
+            InitData();
+        }
+        private async void SpeedBox_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var ParameterInput = new ParameterInputBox();
+            ParameterInput.Message.Text = LanguageHandler.GetMessageResource("ContinousSpeed");
+            await DialogHost.Show(ParameterInput, "RootDialog");
+
+            if (ParameterInput.result)
+            {
+                if ((ParameterInput.Parameter.Text != null) && (ParameterInput.Parameter.Text != ""))
+                {
+                    if ((float.Parse(ParameterInput.Parameter.Text) > 0 && float.Parse(ParameterInput.Parameter.Text) <= 20))
+                    {
+                        SpeedBar.Value = float.Parse(ParameterInput.Parameter.Text);
+                        SpeedBox.Text = LanguageHandler.GetMessageResource("ContSpeed") + float.Parse(ParameterInput.Parameter.Text).ToString() + " %";
+                    }
+                }
+            }
+        }
+
+        private void SpeedBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (SpeedBox != null)
+            {
+                SpeedBox.Text = LanguageHandler.GetMessageResource("ContSpeed") + Math.Round((decimal)SpeedBar.Value, 0).ToString() + " %";
+                AdsCommunication.WriteAny(MainWindow.GetReferenceAdress("continousOverride", MainWindow.NotificationData), (Double)Math.Round((decimal)SpeedBar.Value, 2));
+            }
+        }
+
+        private void StepSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            double value = 0;
+            switch (StepSize.SelectedIndex)
+            {
+                case 0:
+                    value = 0.1D;
+                    break;
+                case 1:
+                    value = 0.2D;
+                    break;
+                case 2:
+                    value = 0.5D;
+                    break;
+                case 3:
+                    value = 1D;
+                    break;
+                default:
+                    value = 0D;
+                    break;
+            }
+            AdsCommunication.WriteAny(MainWindow.GetReferenceAdress("StepSize", MainWindow.NotificationData), value);
         }
     }
 }

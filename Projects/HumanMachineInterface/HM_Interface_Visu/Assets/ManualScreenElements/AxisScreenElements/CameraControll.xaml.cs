@@ -25,12 +25,33 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
         private bool OffsetIsOn = true;
         private DateTime click_Started;
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+        System.Windows.Threading.DispatcherTimer RefreshTimer = new System.Windows.Threading.DispatcherTimer();
+
         public CameraControll()
         {
-            InitializeComponent();          
+            InitializeComponent();  
+            
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0,0,0,0, 100);
+
+            RefreshTimer.Tick += new EventHandler(RefreshTimer_Tick);
+            RefreshTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            RefreshTimer.Start();
         }
+
+        private void RefreshTimer_Tick(object sender, EventArgs e)
+        {
+            if (uEye_Handler.CameraResult.Status == "Initialized" || uEye_Handler.CameraResult.Status == "Sleep")
+            {
+                CameraOn.Foreground = (FindResource("PrimaryHueLightBrush") as SolidColorBrush);
+            }
+            else if (uEye_Handler.CameraResult.Status == "Live")
+            {
+                CameraOn.Foreground = (FindResource("AccentColorBrush") as SolidColorBrush);
+
+            }
+        }
+
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             Save.Content = Math.Round((DateTime.Now - click_Started).TotalSeconds, 0).ToString();

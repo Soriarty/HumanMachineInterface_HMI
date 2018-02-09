@@ -17,6 +17,14 @@ namespace HM_Interface_Visu.Classes
         private static TcAdsClient TwinCat3Client;
         private static ArrayList NotificationHandles;
         private static int hVar;
+
+        public struct Coordinate
+        {
+            public double X;
+            public double Y;
+            public double Z;
+            public double C;
+        }
         public struct VariableInfo
         {
             public string VarAdress;
@@ -239,6 +247,64 @@ namespace HM_Interface_Visu.Classes
                 MessageBox.Show(err.Message);
             }
             return result;
+        }
+        public static Coordinate CoordinateRead(string VarAdress)
+        {
+            Coordinate ReadedCoordinate = new Coordinate();
+            try
+            {
+                hVar = TwinCat3Client.CreateVariableHandle(VarAdress);
+                AdsStream ADSdataStream = new AdsStream(8*4);
+                BinaryReader binRead = new BinaryReader(ADSdataStream);
+                TwinCat3Client.Read(hVar, ADSdataStream);
+
+                ADSdataStream.Position = 0;
+
+                ReadedCoordinate.X = binRead.ReadDouble();
+                ReadedCoordinate.Y = binRead.ReadDouble();
+                ReadedCoordinate.Z = binRead.ReadDouble();
+                ReadedCoordinate.C = binRead.ReadDouble();
+
+                TwinCat3Client.DeleteVariableHandle(hVar);
+                hVar = 0;
+                ADSdataStream.Dispose();
+                binRead.Dispose();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            return ReadedCoordinate;
+        }
+        public static Coordinate[] CoordinateArrayRead(int ArraySize, string VarAdress)
+        {
+            Coordinate[] ReadedCoordinate = new Coordinate[ArraySize];
+            try
+            {
+                hVar = TwinCat3Client.CreateVariableHandle(VarAdress);
+                AdsStream ADSdataStream = new AdsStream(8 * 4);
+                BinaryReader binRead = new BinaryReader(ADSdataStream);
+                TwinCat3Client.Read(hVar, ADSdataStream);
+
+                ADSdataStream.Position = 0;
+                for (int i = 0; i < ArraySize; i++)
+                {
+                    ReadedCoordinate[i].X = binRead.ReadDouble();
+                    ReadedCoordinate[i].Y = binRead.ReadDouble();
+                    ReadedCoordinate[i].Z = binRead.ReadDouble();
+                    ReadedCoordinate[i].C = binRead.ReadDouble();
+                }
+
+                TwinCat3Client.DeleteVariableHandle(hVar);
+                hVar = 0;
+                ADSdataStream.Dispose();
+                binRead.Dispose();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            return ReadedCoordinate;
         }
         #endregion
         #region Single instace Write

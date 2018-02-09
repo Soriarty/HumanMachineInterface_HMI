@@ -20,6 +20,10 @@
     <Key>Speed</Key> <!--Főképernyő sebesség felirat -->
     <Text>Sebesség</Text>
   </Message>
+      <Message>
+    <Key>ContSpeed</Key>
+    <Text>Folyamatos mozgás sebessége: </Text>
+  </Message>
     <Message>
     <Key>AxisTabText</Key> <!--Kézi vezérlés képernyő/tengelyek gomb felirata -->
     <Text>Tengelyek</Text>
@@ -44,8 +48,20 @@
     <Key>wrongpass</Key> <!-- Helytelen jelszó üzenet -->
     <Text>Sikertelen bejelentkezés, hibás jelszó vagy felhasználónév!</Text>
   </Message>
-    <Message>
+  <Message>
     <Key>speedmsg</Key> <!--Sebességbeállító ablak üzenete -->
-    <Text>Add meg a sebességet %-ban (1 és 100 között!)</Text>
+    <Text>Add meg a sebességet %-ban (0 és 100 között!)</Text>
+  </Message>
+  <Message>
+    <Key>ContinousSpeed</Key> <!--Sebességbeállító ablak üzenete -->
+    <Text>Add meg a sebességet %-ban (0 és 20 között!)</Text>
+  </Message>
+  <Message>
+    <Key>btnContinous</Key> 
+    <Text>Folytonos</Text>
+  </Message>
+      <Message>
+    <Key>btnStep</Key> 
+    <Text>Léptető</Text>
   </Message>
 </LanguageElements> 
