@@ -24,10 +24,11 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements
     /// Interaction logic for AxisScreen.xaml
     /// </summary>
     public partial class AxisScreen : System.Windows.Controls.UserControl
-    {        
+    {
+        private bool C_Axis_Exists = false;
         public AxisScreen()
         {
-            if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+            if (DesignerProperties.GetIsInDesignMode(this))
             {
                 return;
             }
@@ -51,7 +52,12 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
+            if (!C_Axis_Exists)
+            {
+                C_Axis.IsEnabled = C_Axis_Exists;
+                C_Axis.Opacity = 0;
+            }
+            
         }
         private void UserControl_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

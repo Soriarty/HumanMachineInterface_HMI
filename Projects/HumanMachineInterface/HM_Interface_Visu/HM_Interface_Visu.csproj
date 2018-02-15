@@ -86,23 +86,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Assets\EmergencyDisplayer.xaml.cs">
+    <Compile Include="Assets\Other\EmergencyDisplayer.xaml.cs">
       <DependentUpon>EmergencyDisplayer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\FlyOutMenuButton.xaml.cs">
-      <DependentUpon>FlyOutMenuButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\LoginDialogBox - Copy.xaml.cs">
+    <Compile Include="Assets\DialogForms\LoginDialogBox - Copy.xaml.cs">
       <DependentUpon>ParameterInputBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\LoginDialogBox.xaml.cs">
+    <Compile Include="Assets\DialogForms\LoginDialogBox.xaml.cs">
       <DependentUpon>LoginDialogBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\MainMenuButton.xaml.cs">
-      <DependentUpon>MainMenuButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -113,25 +107,25 @@
     <Compile Include="Assets\ManualScreenElements\AxisScreen.xaml.cs">
       <DependentUpon>AxisScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\CameraControll.xaml.cs">
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\FunctionPanels\CameraControll.xaml.cs">
       <DependentUpon>CameraControll.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\C_Axis_Panel.xaml.cs">
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\C_Axis_Panel.xaml.cs">
       <DependentUpon>C_Axis_Panel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\MovementModeControll.xaml.cs">
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\FunctionPanels\MovementModeControll.xaml.cs">
       <DependentUpon>MovementModeControll.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\PositionControll.xaml.cs">
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\FunctionPanels\PositionControll.xaml.cs">
       <DependentUpon>PositionControll.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\X_Axis_Panel.xaml.cs">
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\X_Axis_Panel.xaml.cs">
       <DependentUpon>X_Axis_Panel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\Y_Axis_Panel.xaml.cs">
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\Y_Axis_Panel.xaml.cs">
       <DependentUpon>Y_Axis_Panel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\Z_Axis_Panel.xaml.cs">
+    <Compile Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\Z_Axis_Panel.xaml.cs">
       <DependentUpon>Z_Axis_Panel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\ManualScreenElements\MFUScreen.xaml.cs">
@@ -140,20 +134,28 @@
     <Compile Include="Assets\ManualScreenElements\OtherScreen.xaml.cs">
       <DependentUpon>OtherScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\ManualScreenElements\OtherScreenElements\C_Page.xaml.cs">
+      <DependentUpon>C_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\OtherScreenElements\X_Page.xaml.cs">
+      <DependentUpon>X_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\OtherScreenElements\Y_Page.xaml.cs">
+      <DependentUpon>Y_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\OtherScreenElements\Z_Page.xaml.cs">
+      <DependentUpon>Z_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\ManualScreenElements\PneumathicScreen.xaml.cs">
       <DependentUpon>PneumathicScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\Notification.xaml.cs">
+    <Compile Include="Assets\DialogForms\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\SampleMessageDialog.xaml.cs">
+    <Compile Include="Assets\DialogForms\SampleMessageDialog.xaml.cs">
       <DependentUpon>SampleMessageDialog.xaml</DependentUpon>
     </Compile>
-    <Page Include="Assets\EmergencyDisplayer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Assets\FlyOutMenuButton.xaml">
+    <Page Include="Assets\Other\EmergencyDisplayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,31 +175,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ManualScreenElements\AxisScreenElements\CameraControll.xaml">
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\FunctionPanels\CameraControll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ManualScreenElements\AxisScreenElements\C_Axis_Panel.xaml">
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\C_Axis_Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ManualScreenElements\AxisScreenElements\MovementModeControll.xaml">
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\FunctionPanels\MovementModeControll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ManualScreenElements\AxisScreenElements\PositionControll.xaml">
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\FunctionPanels\PositionControll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ManualScreenElements\AxisScreenElements\X_Axis_Panel.xaml">
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\X_Axis_Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ManualScreenElements\AxisScreenElements\Y_Axis_Panel.xaml">
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\Y_Axis_Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ManualScreenElements\AxisScreenElements\Z_Axis_Panel.xaml">
+    <Page Include="Assets\ManualScreenElements\AxisScreenElements\AxisPanels\Z_Axis_Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,19 +211,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\ManualScreenElements\OtherScreenElements\C_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\OtherScreenElements\X_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\OtherScreenElements\Y_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\OtherScreenElements\Z_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\ManualScreenElements\PneumathicScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\ParameterInputBox.xaml">
+    <Page Include="Assets\DialogForms\ParameterInputBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Assets\LoginDialogBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Assets\MainMenuButton.xaml">
+    <Page Include="Assets\DialogForms\LoginDialogBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,19 +257,22 @@
     <Compile Include="Classes\adsServicecs.cs" />
     <Compile Include="Classes\ErrorMessageHandler.cs" />
     <Compile Include="Classes\LanguageHandler.cs" />
+    <Compile Include="Classes\EventLogger.cs" />
     <Compile Include="Classes\MainWindowViewModel.cs" />
+    <Compile Include="Classes\PositionSyncronizer.cs" />
     <Compile Include="Classes\ReadControlData.cs" />
+    <Compile Include="Classes\ReferenceHandler.cs" />
     <Compile Include="Classes\SecurityCryption.cs" />
     <Compile Include="Classes\UserHandler.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Assets\Notification.xaml">
+    <Page Include="Assets\DialogForms\Notification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\SampleMessageDialog.xaml">
+    <Page Include="Assets\DialogForms\SampleMessageDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,9 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="MainWindow_temp.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\Harman_Logo.png" />

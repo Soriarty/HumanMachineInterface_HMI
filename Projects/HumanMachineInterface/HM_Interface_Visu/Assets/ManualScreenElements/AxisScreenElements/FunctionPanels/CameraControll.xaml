@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements.CameraControll"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="210" d:DesignWidth="650" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Style x:Key="HeaderStyleResource" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontWeight" Value="ExtraBold" />
+            <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+            <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+
+        </Style>
+        <Style x:Key="RowStyleResource" TargetType="DataGridRow">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Background" Value="{DynamicResource OpPaperColor}"/>
+            <Setter Property="Selector.Background" Value="{DynamicResource OpPaperColor}"/>
+            <Setter Property="Selector.BorderBrush" Value="{DynamicResource OpPaperColor}"/>
+        </Style>
+        <Style x:Key="CellStyleResource" TargetType="DataGridCell">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Background" Value="{DynamicResource OpPaperColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="Selector.BorderBrush" Value="{DynamicResource OpPaperColor}"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <DockPanel>
+            <Button x:Name="CameraOn" MinHeight="170" Width="100" Margin="5 5 5 5" Content="Camera" Click="CameraOn_Click"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel Name="ButtonPanel" Margin="10,0,10,5" Grid.Row="0">
+                    <Button x:Name="OffSet" Margin="5 5 5 5" Width="200" Height="60"  Content="Offset ON/OFF" HorizontalAlignment="Left" Click="OffSet_Click"/>
+                    <Button x:Name="Save" Margin="5 5 5 5" Width="200" Height="60" Content="Offset Save" HorizontalAlignment="Right" PreviewMouseLeftButtonDown="Save_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="Save_PreviewMouseLeftButtonUp"/>
+                </DockPanel>
+                <DockPanel x:Name="DisplayPanel" Grid.Row="1" Margin="16,0,16,16">
+                    <Border Grid.Row="1" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" DockPanel.Dock="Bottom">
+                        <DataGrid x:Name="PositionGrid" HorizontalGridLinesBrush="{DynamicResource OpPaperColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ColumnWidth="*" IsReadOnly="True" SelectionChanged="PositionGrid_SelectionChanged" DockPanel.Dock="Bottom">
+                        </DataGrid>
+                    </Border>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -3,10 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:assets="clr-namespace:HM_Interface_Visu.Assets.ManualScreenElements.OtherScreenElements"
              xmlns:local="clr-namespace:HM_Interface_Visu.Assets.ManualScreenElements"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="600" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid Margin="5 5 5 5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Margin="5 5 5 5" Padding="5" Grid.Row="0" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <DockPanel>
+                <Button x:Name="Prevoius" Margin="5 5 5 5" Height="80" Width="80" HorizontalAlignment="Left" Click="Prevoius_Click" >
+                    <materialDesign:PackIcon Width="40" Height="40" Kind="ArrowLeftBold">
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button x:Name="Next" Margin="5 5 5 5" Height="80" DockPanel.Dock="Right" Width="80" HorizontalAlignment="Right" Click="Next_Click">
+                    <materialDesign:PackIcon Width="40" Height="40" Kind="ArrowRightBold">
+                    </materialDesign:PackIcon>
+                </Button>
+                <Grid HorizontalAlignment="Center">
+                    <TextBlock x:Name="PageName" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="36">Y Axis</TextBlock>
+                </Grid>
+            </DockPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Margin="5 5 5 5" Padding="5" Grid.Row="1" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <DockPanel LastChildFill="True">
+                <Grid x:Name="AxisSlot" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <assets:Y_Page/>
+                </Grid>
+            </DockPanel>
+        </materialDesign:Card>
     </Grid>
 </UserControl>

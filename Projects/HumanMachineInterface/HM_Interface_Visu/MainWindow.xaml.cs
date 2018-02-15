@@ -37,7 +37,7 @@ namespace HM_Interface_Visu
 
         public static AdsCommunication.VariableInfo[] NotificationData;
         SecurityCryption securityCryption = new SecurityCryption("G1FID#iY6j48Q7D");
-        private Notification notifiDisplayer;
+        private Notification notifiDisplayer;      
 
         public static Snackbar Snackbar;
         private static Assets.LoginDialogBox LoginDialog;
@@ -45,8 +45,9 @@ namespace HM_Interface_Visu
         private static Assets.ManualPage manualPage;
         private static Assets.SettingsPage settingsPage;
         private static Assets.HistoryPage historyPage;
+
         private static MainWindowViewModel WindowViewModel;
-        private static int UserStatus = 0;
+        private static int UserStatus = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -57,32 +58,7 @@ namespace HM_Interface_Visu
         private void CloseNotification()
         {
             this.NotifiSlot.Children.Remove(NotifiSlot.Children[0]);
-        }
-        public object GetReferenceObject(string RefName, AdsCommunication.VariableInfo[] source)
-        {
-            AdsCommunication.VariableInfo ResultVariableInfo = Array.Find(source, s => s.Objects.ToString() == RefName);
-            return ResultVariableInfo.Objects;
-        }
-        public static string GetReferenceAdress(string RefName, AdsCommunication.VariableInfo[] source)
-        {
-            string result = null;
-            for (int index = 0; index <= source.Length; index++)
-            {
-                if (source[index].Objects.ToString().ToLower() == RefName.ToLower()) { result = source[index].VarAdress; break; }
-            }
-            return result;
-        }
-        private int GetIndexOf(string RefName, AdsCommunication.VariableInfo[] source)
-        {
-            int index = -1;
-            bool isValid = false;
-            for (index = 0; index<=source.Length; index++)
-            {
-                if (source[index].Objects.ToString().ToLower() == RefName.ToLower()) { isValid = true; break; }            
-            }
-            if (isValid) return index;
-            else return -1;
-        }
+        }        
         private void DisplayError(int ErrorCode)
         {
             if(ErrorCode == 8)
@@ -95,12 +71,19 @@ namespace HM_Interface_Visu
         }
         private void InitializeContent()
         {
+            EventLogger.RecordEvent(EventLogger.EventType.Info,"0x0001", "Start intializing the FORM");
+            
             notifiDisplayer = new Notification();
             notifiDisplayer.btnOK.Click += new RoutedEventHandler(CloseNotification_ButtonClick);
+
             uEye_Handler.InitializeCamera();
             if (uEye_Handler.CameraResult.Status != "Initialized")
             {
-                MessageBox.Show(uEye_Handler.CameraResult.ErrorDescription + "\n\n ErrorCode: " + uEye_Handler.CameraResult.ErrorCode, "Camera Connection Error!");
+                EventLogger.RecordEvent(EventLogger.EventType.Warning, uEye_Handler.CameraResult.ErrorCode, uEye_Handler.CameraResult.ErrorDescription);
+            }
+            else
+            {
+                EventLogger.RecordEvent(EventLogger.EventType.Info, "0x0002", "Camera status is: "+uEye_Handler.CameraResult.Status);
             }
             mainPage = new Assets.MainPage();
             manualPage = new Assets.ManualPage();
@@ -112,11 +95,8 @@ namespace HM_Interface_Visu
             mainPage.tbDate.Text = DateTime.Now.ToShortDateString();
             mainPage.tbCurrentTime.Text = DateTime.Now.ToShortTimeString();
 
-            NotificationData = ReadControlData.GetVariable();
-            AdsCommunication.Connect(TwinCat3Client_AdsNotificationEx);
-            AdsCommunication.RegisterNotification(NotificationData, 256);
+            ReferenceHandler.ConnectRoutineADS(TwinCat3Client_AdsNotificationEx);
 
-            btnMode.Background = (SolidColorBrush)FindResource("BaseYellowBrush");
             WindowViewModel.DisplayPage(mainPage);
             WindowViewModel.InitialLanguage();
         }
@@ -136,12 +116,12 @@ namespace HM_Interface_Visu
             Application.Current.Dispatcher.Invoke
             (new Action(() =>
             {
-                if (e.UserData == GetReferenceObject("controll", NotificationData))
+                if (e.UserData == ReferenceHandler.GetReferenceObject("controll"))
                 {
                     if ((bool)e.Value) { btnControl.Background = (SolidColorBrush)FindResource("BaseGreenBrush"); }
                     else { btnControl.Background = (SolidColorBrush)FindResource("BaseRedBrush"); }
                 }
-                if (e.UserData == GetReferenceObject("mode", NotificationData))
+                if (e.UserData == ReferenceHandler.GetReferenceObject("mode"))
                 {
                     if ((bool)e.Value)
                     {
@@ -154,33 +134,33 @@ namespace HM_Interface_Visu
                         btnModeContent.Text = "M";
                     }
                 }
-                if (e.UserData == GetReferenceObject("deprag_status", NotificationData)) { mainPage.tbStatus.Text = e.Value.ToString(); }
-                if (e.UserData == GetReferenceObject("deprag_step", NotificationData)) { mainPage.tbStepNr.Text = e.Value.ToString(); }
-                if (e.UserData == GetReferenceObject("result_torque", NotificationData)) { mainPage.tbTorque.Text = Math.Round((Single)e.Value, 3).ToString(); }
-                if (e.UserData == GetReferenceObject("result_angle", NotificationData)) { mainPage.tbAngle.Text = e.Value.ToString(); }
-                if (e.UserData == GetReferenceObject("deprag_program", NotificationData)) { mainPage.tbProgramNumber.Text = e.Value.ToString(); }
-                if (e.UserData == GetReferenceObject("deprag_CycleTime", NotificationData)) { mainPage.tbProcessTime.Text = Math.Round((Single)e.Value, 3).ToString(); }
-                if (e.UserData == GetReferenceObject("Override", NotificationData))
+                if (e.UserData == ReferenceHandler.GetReferenceObject("deprag_status")) { mainPage.tbStatus.Text = e.Value.ToString(); }
+                if (e.UserData == ReferenceHandler.GetReferenceObject("deprag_step")) { mainPage.tbStepNr.Text = e.Value.ToString(); }
+                if (e.UserData == ReferenceHandler.GetReferenceObject("result_torque")) { mainPage.tbTorque.Text = Math.Round((Single)e.Value, 3).ToString(); }
+                if (e.UserData == ReferenceHandler.GetReferenceObject("result_angle")) { mainPage.tbAngle.Text = e.Value.ToString(); }
+                if (e.UserData == ReferenceHandler.GetReferenceObject("deprag_program")) { mainPage.tbProgramNumber.Text = e.Value.ToString(); }
+                if (e.UserData == ReferenceHandler.GetReferenceObject("deprag_CycleTime")) { mainPage.tbProcessTime.Text = Math.Round((Single)e.Value, 3).ToString(); }
+                if (e.UserData == ReferenceHandler.GetReferenceObject("Override"))
                 {
                     SpeedBar.Value = (Double)e.Value;
                     SpeedBox.Text = Math.Round((decimal)(Double)e.Value, 0).ToString() + " %";
                 }
-                if (e.UserData == GetReferenceObject("message_number", NotificationData))
+                if (e.UserData == ReferenceHandler.GetReferenceObject("message_number"))
                 {
                     if(int.Parse(e.Value.ToString()) !=0)
                     {
-                        AdsCommunication.WriteAny(GetReferenceAdress("confirm", NotificationData), false);
-                        AdsCommunication.WriteAny(GetReferenceAdress("ClearNotifi", NotificationData), false);
+                        AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("confirm"), false);
+                        AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("ClearNotifi"), false);
                         DisplayError(int.Parse(e.Value.ToString()));
 
                     }
                     
                 }
 
-                if (e.UserData == GetReferenceObject("ClearNotifi", NotificationData) && AdsCommunication.ReadInt(GetReferenceAdress("message_number", NotificationData))==0 && NotifiSlot.Children.Count !=0)
+                if (e.UserData == ReferenceHandler.GetReferenceObject("ClearNotifi") && AdsCommunication.ReadInt(ReferenceHandler.GetReferenceAdress("message_number"))==0 && NotifiSlot.Children.Count !=0)
                 {
                     CloseNotification();
-                    AdsCommunication.WriteAny(GetReferenceAdress("confirm", NotificationData), false);
+                    AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("confirm"), false);
                 }
             }));
         }
@@ -222,14 +202,15 @@ namespace HM_Interface_Visu
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            WindowViewModel.SetUserAcces(UserStatus);
+            PositionSyncronizer.StartSyncing(100);
         }
         private void CloseNotification_ButtonClick(object sender, RoutedEventArgs e)
         {
 
             if (notifiDisplayer.btnOK.Opacity == 100 )
             {
-                AdsCommunication.WriteAny(GetReferenceAdress("confirm", NotificationData), true);
+                AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("confirm"), true);
                 //if(AdsCommunication.ReadInt(GetReferenceAdress("message_number", NotificationData)) == 0)
                 //{
                 //    CloseNotification();
@@ -238,8 +219,8 @@ namespace HM_Interface_Visu
         }
         private void btnControl_Click(object sender, RoutedEventArgs e)
         {           
-            if (!AdsCommunication.ReadBit(GetReferenceAdress("controll", NotificationData))) { AdsCommunication.WriteAny(GetReferenceAdress("controll", NotificationData), true); }
-            else { AdsCommunication.WriteAny(GetReferenceAdress("controll", NotificationData), false); }
+            if (!AdsCommunication.ReadBit(ReferenceHandler.GetReferenceAdress("controll"))) { AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("controll"), true); }
+            else { AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("controll"), false); }
         }
 
         private void btnMainScreen_Click(object sender, RoutedEventArgs e)
@@ -276,19 +257,20 @@ namespace HM_Interface_Visu
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
             uEye_Handler.StopLiveView();
+            PositionSyncronizer.StopSyncing();
             this.Close();
         }
         private void btnMode_Click(object sender, RoutedEventArgs e)
         {
-            if (!AdsCommunication.ReadBit(GetReferenceAdress("mode", NotificationData))) { AdsCommunication.WriteAny(GetReferenceAdress("mode", NotificationData), true); }
-            else { AdsCommunication.WriteAny(GetReferenceAdress("mode", NotificationData), false); }
+            if (!AdsCommunication.ReadBit(ReferenceHandler.GetReferenceAdress("mode"))) { AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("mode"), true); }
+            else { AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("mode"), false); }
         }
         private void SpeedBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (SpeedBox != null)
             {
                 SpeedBox.Text = Math.Round((decimal)SpeedBar.Value, 0).ToString() + " %";
-                AdsCommunication.WriteAny(GetReferenceAdress("Override", NotificationData), (Double)Math.Round((decimal)SpeedBar.Value, 2));
+                AdsCommunication.WriteAny(ReferenceHandler.GetReferenceAdress("Override"), (Double)Math.Round((decimal)SpeedBar.Value, 2));
             }
             
         }

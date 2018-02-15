@@ -24,6 +24,10 @@
         </Setter>
     </Style>
 
+    <Style x:Key="CenterAligned" TargetType="DataGridCell">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
     <converters:RangeLengthConverter x:Key="RangeLengthConverter" />
     <converters:MathConverter x:Key="MathAddConverter" Operation="Add" />
     <system:Int32 x:Key="ProgressRingStrokeWidth">8</system:Int32>

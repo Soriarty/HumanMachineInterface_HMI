@@ -28,6 +28,7 @@
     <Key>AxisTabText</Key> <!--Kézi vezérlés képernyő/tengelyek gomb felirata -->
     <Text>Tengelyek</Text>
   </Message>
+    </Message>
   <Message>
     <Key>MFUTabText</Key> <!--Kézi vezérlés képernyő/Mérő programok (MFU bunker stb.) gomb felirata -->
     <Text>Mérések</Text>

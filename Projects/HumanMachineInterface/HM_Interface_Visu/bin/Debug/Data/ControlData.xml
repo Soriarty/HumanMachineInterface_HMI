@@ -159,6 +159,104 @@
     <type>System.Double</type>
     <object>StepSize</object>
   </Var>
+  <!-- X Positions -->
+  <Var> 
+    <adress>G_lrHMI_POS_X_REF_1</adress>
+    <type>System.Double</type>
+    <object>X_REF_1</object>
+  </Var>
+  <Var> 
+    <adress>G_lrHMI_POS_X_CHANGE_WT</adress>
+    <type>System.Double</type>
+    <object>X_CHANGE_WT</object>
+  </Var>
+  <Var> 
+    <adress>G_lrHMI_POS_X_HOME</adress>
+    <type>System.Double</type>
+    <object>X_HOME</object>
+  </Var>
+  <!-- Y Positions -->
+  <Var> 
+    <adress>G_lrHMI_POS_Y_REF_1</adress>
+    <type>System.Double</type>
+    <object>Y_REF_1</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Y_SCREW_FEED_1</adress>
+    <type>System.Double</type>
+    <object>Y_SCREW_FEED_1</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Y_SCREW_FEED_2</adress>
+    <type>System.Double</type>
+    <object>Y_SCREW_FEED_2</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Y_SCREW_FEED_3</adress>
+    <type>System.Double</type>
+    <object>Y_SCREW_FEED_3</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Y_SCREW_FEED_4</adress>
+    <type>System.Double</type>
+    <object>Y_SCREW_FEED_4</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Y_SCREW_DROP_1_2</adress>
+    <type>System.Double</type>
+    <object>Y_SCREW_DROP_1_2</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Y_SCREW_DROP_3_4</adress>
+    <type>System.Double</type>
+    <object>Y_SCREW_DROP_3_4</object>
+  </Var>
+  <!-- Z Positions -->
+  <Var> 
+    <adress>G_lrHMI_POS_Z_REF_1</adress>
+    <type>System.Double</type>
+    <object>Z_REF_1</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_SCREW_FEED_1</adress>
+    <type>System.Double</type>
+    <object>Z_SCREW_FEED_1</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_SCREW_FEED_2</adress>
+    <type>System.Double</type>
+    <object>Z_SCREW_FEED_2</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_SCREW_FEED_3</adress>
+    <type>System.Double</type>
+    <object>Z_SCREW_FEED_3</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_SCREW_FEED_4</adress>
+    <type>System.Double</type>
+    <object>Z_SCREW_FEED_4</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_SCREW_DROP_1_2</adress>
+    <type>System.Double</type>
+    <object>Z_SCREW_DROP_1_2</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_SCREW_DROP_3_4</adress>
+    <type>System.Double</type>
+    <object>Z_SCREW_DROP_3_4</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_HOME</adress>
+    <type>System.Double</type>
+    <object>Z_HOME</object>
+  </Var>
+    <Var> 
+    <adress>G_lrHMI_POS_Z_MANIPULATE</adress>
+    <type>System.Double</type>
+    <object>Z_MANIPULATE</object>
+  </Var>
 </VariableData>
 
 <!-- 

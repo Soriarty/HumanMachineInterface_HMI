@@ -58,23 +58,23 @@
                     <Image x:Name="LiveImage"></Image>
                 </DockPanel>
             </materialDesign:Card>
-            <materialDesign:Card Height="100" Margin="5 5 5 5" Grid.Column="1" Grid.Row="0" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">
-                <DockPanel x:Name="Y_Axis">
+            <materialDesign:Card x:Name="Y_Axis" Height="100" Margin="5 5 5 5" Grid.Column="1" Grid.Row="0" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                <DockPanel >
                     <assets:Y_Axis_Panel/>
                 </DockPanel>
             </materialDesign:Card>
-            <materialDesign:Card Width="100" Margin="5 5 5 5" Grid.Column="2" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center">
-                <DockPanel x:Name="X_Axis">
+            <materialDesign:Card x:Name="X_Axis" Width="100" Margin="5 5 5 5" Grid.Column="2" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                <DockPanel >
                     <assets:X_Axis_Panel/>
                 </DockPanel>
             </materialDesign:Card>
-            <materialDesign:Card Width="100" Margin="5 5 5 5" Grid.Column="0" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center">
-                <DockPanel x:Name="Z_Axis">
+            <materialDesign:Card x:Name="Z_Axis" Width="100" Margin="5 5 5 5" Grid.Column="0" Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+                <DockPanel >
                     <assets:Z_Axis_Panel/>
                 </DockPanel>
             </materialDesign:Card>
-            <materialDesign:Card Height="100" Margin="5 5 5 5" Grid.Column="1" Grid.Row="2" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">
-                <DockPanel x:Name="C_Axis">
+            <materialDesign:Card x:Name="C_Axis" Height="100" Margin="5 5 5 5" Grid.Column="1" Grid.Row="2" Background="{DynamicResource MaterialDesignPaper}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                <DockPanel >
                     <assets:C_Axis_Panel/>
                 </DockPanel>
             </materialDesign:Card>

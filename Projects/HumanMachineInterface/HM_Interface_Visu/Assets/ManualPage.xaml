@@ -24,11 +24,13 @@
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="180"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="btnAxis" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Tengelyek" Foreground="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="0" Margin="1,1,1,0" FontSize="16" Click="btnMenu_Click"/>
             <Button x:Name="btnPneumathic" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Pneumatika" Grid.Row="0" Grid.Column="1"  Margin="1 1 1 0" IsEnabled="true"  FontSize="16" Click="btnMenu_Click"/>
             <Button x:Name="btnMFU" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Mérések" Grid.Row="0" Grid.Column="2"  Margin="1 1 1 0" IsEnabled="true"  FontSize="16" Click="btnMenu_Click"/>
             <Button x:Name="btnOther" Height="50" Style="{DynamicResource CustomDesignRaisedDarkButton}" Content="Egyebek" Grid.Row="0" Grid.Column="3"  Margin="1 1 1 0" IsEnabled="True"  FontSize="16" Click="btnMenu_Click"/>
+            
             <Rectangle Height="5"  x:Name="AxisIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="0"  Margin="0 1 1 0" Visibility="Visible" VerticalAlignment="Bottom"/>
             <Rectangle Height="5" x:Name="PneumathiclIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="1" Margin="0 1 1 0" Visibility="Visible" VerticalAlignment="Bottom"/>
             <Rectangle Height="5" x:Name="MFUIndicator" Fill="{DynamicResource AccentColorBrush}" Grid.Row="0" Grid.Column="2" Margin="0 1 1 0" Visibility="Visible" VerticalAlignment="Bottom"/>
