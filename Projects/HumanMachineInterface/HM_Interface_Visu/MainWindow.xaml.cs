@@ -175,7 +175,12 @@ namespace HM_Interface_Visu
                 WindowViewModel.SetUserAcces(UserStatus);
                 LoginDialog.User.Text = "";
                 LoginDialog.Password.Password = "";
-
+                if (UserStatus >=0)
+                {
+                    manualPage.IsEnabled = true;
+                    settingsPage.IsEnabled = true;
+                    historyPage.IsEnabled =true;
+                }
                 if (NotifiSlot.Children.Count == 0 && UserStatus == 0)
                 {
                     notifiDisplayer.Configuration(LanguageHandler.GetMessageResource("wrongpass"), (SolidColorBrush)FindResource("BaseYellowBrush"), false);
@@ -196,9 +201,12 @@ namespace HM_Interface_Visu
                 LoginDialog.User.Text = "";
                 LoginDialog.Password.Password = "";
                 UserStatus = UserHandler.SelectUserLevel(null , null);
+                manualPage.IsEnabled = false;
+                settingsPage.IsEnabled = false;
+                historyPage.IsEnabled = false;
+                UserHandler.CurrentUserAcces = UserStatus;
                 WindowViewModel.SetUserAcces(UserStatus);
             }
-            this.Focus();
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {

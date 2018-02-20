@@ -282,7 +282,7 @@ namespace HM_Interface_Visu.Classes
             try
             {
                 hVar = TwinCat3Client.CreateVariableHandle(VarAdress);
-                AdsStream ADSdataStream = new AdsStream(8 * 4);
+                AdsStream ADSdataStream = new AdsStream(8 * 4 * ArraySize);
                 BinaryReader binRead = new BinaryReader(ADSdataStream);
                 TwinCat3Client.Read(hVar, ADSdataStream);
 

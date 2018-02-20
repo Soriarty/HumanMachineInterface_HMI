@@ -48,20 +48,32 @@
     <Key>wrongpass</Key>
     <Text>Access denied, wrong username or password!</Text>
   </Message>
-    <Message>
+  <Message>
     <Key>speedmsg</Key>
     <Text>Type the speed in %(between 0 to 100)</Text>
   </Message>
-    <Message>
+  <Message>
     <Key>ContinousSpeed</Key> <!--Sebességbeállító ablak üzenete -->
-    <Text>Add meg a sebességet %-ban (0 és 20 között!)</Text>
+    <Text>Type the speed in %(between 0 to 20)</Text>
   </Message>
-    <Message>
+  <Message>
+    <Key>LoadPositionMSG</Key> 
+    <Text>Type the position index (between 0 to 1000)</Text>
+  </Message>
+  <Message>
     <Key>btnContinous</Key> 
     <Text>Continous</Text>
   </Message>
-      <Message>
+  <Message>
     <Key>btnStep</Key> 
     <Text>Step</Text>
+  </Message>
+  <Message>
+    <Key>plsSelectPos</Key> 
+    <Text>Please select position!</Text>
+  </Message>
+  <Message>
+    <Key>selectedPosition</Key> 
+    <Text>Selected position: </Text>
   </Message>
 </LanguageElements>

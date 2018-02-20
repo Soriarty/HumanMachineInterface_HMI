@@ -139,6 +139,11 @@
     <type>System.Boolean</type>
     <object>C_Axis_Negative</object>
   </Var>
+    <Var> 
+    <adress>G_sHMIPositions</adress>
+    <type>System.Double</type>
+    <object>PositionArray</object>
+  </Var>
   <Var> 
     <adress>G_sHMICurrentPos</adress>
     <type>System.Double</type>

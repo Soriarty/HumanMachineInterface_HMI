@@ -37,7 +37,7 @@
                             VerticalAlignment="Center" Minimum="0" HorizontalContentAlignment="Center" ValueChanged="SpeedBar_ValueChanged" />
                 </DockPanel>
                 <DockPanel Grid.Row="1" Margin="50 5 50 25">
-                    <TextBlock DockPanel.Dock="Top" FontSize="20" >Step size:</TextBlock>
+                    <TextBlock Name="StepSizeText" DockPanel.Dock="Top" FontSize="20" >Step size:</TextBlock>
                     <ComboBox Name="StepSize"  VerticalAlignment="Bottom" DockPanel.Dock="Bottom" FontSize="20" SelectionChanged="StepSize_SelectionChanged">
                         <ComboBoxItem Content="0.1"/>
                         <ComboBoxItem Content="0.2"/>

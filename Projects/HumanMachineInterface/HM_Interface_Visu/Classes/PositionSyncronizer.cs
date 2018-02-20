@@ -11,18 +11,30 @@ namespace HM_Interface_Visu.Classes
     {
         private static System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
 
-        public static AdsCommunication.Coordinate coordinate;
+        private static AdsCommunication.Coordinate CurrentCoordinate;
+        private static AdsCommunication.Coordinate TargetCoordinate; 
         public static event PropertyChangedEventHandler PropertyChanged;
-
-        public static AdsCommunication.Coordinate CurrentPos
+        public static AdsCommunication.Coordinate TargetPosition
         {
             get
             {
-                return coordinate;
+                return TargetCoordinate;
             }
             set
             {
-                coordinate = value;
+                TargetCoordinate = value;
+                OnPropertyChanged("TargetPosition");
+            }
+        }
+        public static AdsCommunication.Coordinate CurrentPosition
+        {
+            get
+            {
+                return CurrentCoordinate;
+            }
+            set
+            {
+                CurrentCoordinate = value;
                 OnPropertyChanged("CurrentPosition");
             }
         }
@@ -48,7 +60,7 @@ namespace HM_Interface_Visu.Classes
 
         private static void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            CurrentPos = AdsCommunication.CoordinateRead(ReferenceHandler.GetReferenceAdress("CurrentPos"));
+            CurrentPosition = AdsCommunication.CoordinateRead(ReferenceHandler.GetReferenceAdress("CurrentPos"));
         }
     }
 }

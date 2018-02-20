@@ -63,8 +63,8 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.OtherScreenElements
         }
         private void PosSyncEvent(object sender, PropertyChangedEventArgs e)
         {
-            CurrentPos.Text = Math.Round(PositionSyncronizer.CurrentPos.Z, 2).ToString();
-            SaveTempPos = Math.Round(PositionSyncronizer.CurrentPos.Z, 2);
+            CurrentPos.Text = Math.Round(PositionSyncronizer.CurrentPosition.Z, 2).ToString();
+            SaveTempPos = Math.Round(PositionSyncronizer.CurrentPosition.Z, 2);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

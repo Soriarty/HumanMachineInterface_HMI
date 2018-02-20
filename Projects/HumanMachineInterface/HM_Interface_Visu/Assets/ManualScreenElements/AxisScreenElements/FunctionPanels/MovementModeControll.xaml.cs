@@ -56,12 +56,18 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
             if (state)
             {
                 MovementModeSelect.Content = LanguageHandler.GetMessageResource("btnContinous");
+                SpeedBox.Foreground = (FindResource("AccentColorBrush") as SolidColorBrush);
+                StepSizeText.Foreground = (FindResource("PrimaryHueLightBrush") as SolidColorBrush);
+                StepSize.Foreground = (FindResource("PrimaryHueLightBrush") as SolidColorBrush);
                 SpeedBar.IsEnabled = true;
                 StepSize.IsEnabled = false;
             }
             else
             {
                 MovementModeSelect.Content = LanguageHandler.GetMessageResource("btnStep");
+                SpeedBox.Foreground = (FindResource("PrimaryHueLightBrush") as SolidColorBrush);
+                StepSizeText.Foreground = (FindResource("AccentColorBrush") as SolidColorBrush);
+                StepSize.Foreground = (FindResource("AccentColorBrush") as SolidColorBrush);
                 SpeedBar.IsEnabled = false;
                 StepSize.IsEnabled = true;
             }

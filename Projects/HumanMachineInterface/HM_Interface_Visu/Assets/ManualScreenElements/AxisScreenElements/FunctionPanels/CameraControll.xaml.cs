@@ -85,8 +85,8 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            Save.Content = Math.Round((DateTime.Now - click_Started).TotalSeconds, 0).ToString();
-            if (Save.Content as string == "10")
+            Save.Content = (10 - Math.Round((DateTime.Now - click_Started).TotalSeconds, 0)).ToString();
+            if (Save.Content as string == "0")
             {
                 dispatcherTimer.Stop();
                 Save.Content = "Offset Save";

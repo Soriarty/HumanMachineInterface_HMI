@@ -357,5 +357,9 @@
   <ItemGroup>
     <Resource Include="Pictures\Cam.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\ManualScreenElements\MfuScreenElements\" />
+    <Folder Include="Assets\ManualScreenElements\PneumathicScreenElements\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

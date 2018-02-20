@@ -37,19 +37,21 @@
     <Grid>
         <DockPanel>
             <Button x:Name="LoadPos" MinHeight="170" Width="100" Margin="5 5 5 5" Content="Load" Click="LoadPos_Click" />
-            <Button x:Name="SavePos" MinHeight="170" Width="100" Margin="5 5 5 5" Content="Save" DockPanel.Dock="Right" PreviewMouseLeftButtonDown="SavePos_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="SavePos_PreviewMouseLeftButtonUp"/>
+            <Button x:Name="SavePos" MinHeight="170" Width="100" Margin="5 5 5 5" Content="Save" DockPanel.Dock="Right" PreviewMouseLeftButtonDown="SavePos_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="SavePos_PreviewMouseLeftButtonUp" IsEnabled="False"/>
             <Grid Margin="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
-                <DockPanel   x:Name="DataSlot" Grid.Row="1">
+                <DockPanel x:Name="DataSlot" Grid.Row="1">
                     <Border Margin="15 0 15 15" Grid.Row="1" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" DockPanel.Dock="Bottom">
                         <DataGrid x:Name="PositionGrid" HorizontalGridLinesBrush="{DynamicResource OpPaperColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ColumnWidth="*" IsReadOnly="True" SelectionChanged="PositionGrid_SelectionChanged" DockPanel.Dock="Bottom">
                         </DataGrid>
                     </Border>
                 </DockPanel>
-                
+                <DockPanel x:Name="LoadedPosition" Grid.Row="0">
+                    <TextBlock x:Name="SelectedPosition" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold">Please select position!</TextBlock>
+                </DockPanel>                
             </Grid>
         </DockPanel>
     </Grid>

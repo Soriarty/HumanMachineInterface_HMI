@@ -28,7 +28,6 @@
     <Key>AxisTabText</Key> <!--Kézi vezérlés képernyő/tengelyek gomb felirata -->
     <Text>Tengelyek</Text>
   </Message>
-    </Message>
   <Message>
     <Key>MFUTabText</Key> <!--Kézi vezérlés képernyő/Mérő programok (MFU bunker stb.) gomb felirata -->
     <Text>Mérések</Text>
@@ -58,11 +57,23 @@
     <Text>Add meg a sebességet %-ban (0 és 20 között!)</Text>
   </Message>
   <Message>
+    <Key>LoadPositionMSG</Key> 
+    <Text>Add meg a betölteni kívánt pozició számát (0 és 1000 között!)</Text>
+  </Message>
+  <Message>
     <Key>btnContinous</Key> 
     <Text>Folytonos</Text>
   </Message>
-      <Message>
+  <Message>
     <Key>btnStep</Key> 
     <Text>Léptető</Text>
+  </Message>
+    <Message>
+    <Key>plsSelectPos</Key> 
+    <Text>Válasz poziciót!</Text>
+  </Message>
+    <Message>
+    <Key>selectedPosition</Key> 
+    <Text>Betöltött pozició: </Text>
   </Message>
 </LanguageElements> 

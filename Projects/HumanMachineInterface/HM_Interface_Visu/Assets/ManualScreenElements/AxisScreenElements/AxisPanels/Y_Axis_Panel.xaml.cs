@@ -58,7 +58,14 @@ namespace HM_Interface_Visu.Assets.ManualScreenElements.AxisScreenElements
         }
         private void PosSyncEvent(object sender, PropertyChangedEventArgs e)
         {
-            CurrentPos.Text = Math.Round(PositionSyncronizer.CurrentPos.Y, 2).ToString();
+            if (e.PropertyName == "CurrentPosition")
+            {
+                CurrentPos.Text = Math.Round(PositionSyncronizer.CurrentPosition.Y, 2).ToString();
+            }
+            else if (e.PropertyName == "TargetPosition")
+            {
+                TargetPos.Text = Math.Round(PositionSyncronizer.TargetPosition.Y, 2).ToString();
+            }
         }
     }
 }
