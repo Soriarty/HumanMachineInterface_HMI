@@ -9,6 +9,7 @@ using TwinCAT.Ads;
 using System.Collections;
 using System.Windows;
 using System.IO;
+using System.ComponentModel;
 
 namespace HM_Interface_Visu.Classes
 {
@@ -17,7 +18,18 @@ namespace HM_Interface_Visu.Classes
         private static TcAdsClient TwinCat3Client;
         private static ArrayList NotificationHandles;
         private static int hVar;
-
+        public static event PropertyChangedEventHandler PropertyChanged;
+        public static TcAdsClient TwinCAT_Client
+        {
+            get
+            {
+                return TwinCat3Client;
+            }
+            set
+            {
+                TwinCat3Client = value;
+            }
+        }
         public struct Coordinate
         {
             public double X;
@@ -31,7 +43,6 @@ namespace HM_Interface_Visu.Classes
             public Type Types;
             public object Objects;
         }
-
         #region Connect - Disconnect
         public static void Connect(AdsNotificationExEventHandler TwinCat3Client_AdsNotificationEx)
         {

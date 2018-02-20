@@ -7,6 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <DockPanel LastChildFill="False">
+            <CheckBox FontSize="10" Content="Feeder 1" DockPanel.Dock="Top" Margin="10 10 10 10">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox FontSize="10" Content="Feeder 2" DockPanel.Dock="Top" Margin="10 10 10 10">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox FontSize="10" Content="Feeder 3" DockPanel.Dock="Top" Margin="10 10 10 10">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox FontSize="10" Content="Feeder 4" DockPanel.Dock="Top" Margin="10 10 10 10">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+        </DockPanel>
     </Grid>
 </UserControl>

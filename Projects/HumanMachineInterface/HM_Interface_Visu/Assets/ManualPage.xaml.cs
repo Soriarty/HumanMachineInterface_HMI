@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using TwinCAT.Ads;
 
 namespace HM_Interface_Visu.Assets
 {
@@ -101,6 +102,31 @@ namespace HM_Interface_Visu.Assets
             if (((ButtonBase)sender) == btnPneumathic) DisplayPage(Screens[1]);
             if (((ButtonBase)sender) == btnMFU) DisplayPage(Screens[2]);
             if (((ButtonBase)sender) == btnOther) DisplayPage(Screens[3]);
+        }
+        public void TwinCat3Client_AdsNotificationEx(object sender, AdsNotificationExEventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke
+            (new Action(() =>
+            {
+                if (e.UserData == ReferenceHandler.GetReferenceObject("controll"))
+                {
+                    if ((Boolean)e.Value)
+                    {
+
+                    }
+                }
+                if (e.UserData == ReferenceHandler.GetReferenceObject("mode"))
+                {
+                    Screens[0].IsEnabled = !(bool)e.Value;
+                    Screens[1].IsEnabled = !(bool)e.Value;
+                    Screens[2].IsEnabled = (bool)e.Value;
+                    Screens[3].IsEnabled = !(bool)e.Value;
+                }
+            }));
+        }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            AdsCommunication.TwinCAT_Client.AdsNotificationEx += new AdsNotificationExEventHandler(TwinCat3Client_AdsNotificationEx);
         }
     }
 

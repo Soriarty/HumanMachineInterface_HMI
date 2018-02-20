@@ -262,3 +262,9 @@ D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\Hum
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\AxisPanels\X_Axis_Panel.baml
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\AxisPanels\Y_Axis_Panel.baml
 D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\AxisScreenElements\AxisPanels\Z_Axis_Panel.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MfuScreenElements\PositionRepeatability.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MfuScreenElements\ScrewPickUp.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MfuScreenElements\TorqueMSC.g.cs
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MfuScreenElements\PositionRepeatability.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MfuScreenElements\ScrewPickUp.baml
+D:\Software_Development\C#\GIT_Repository\HumanMachineInterface_HMI\Projects\HumanMachineInterface\HM_Interface_Visu\obj\Debug\Assets\ManualScreenElements\MfuScreenElements\TorqueMSC.baml

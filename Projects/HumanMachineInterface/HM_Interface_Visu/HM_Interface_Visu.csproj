@@ -86,6 +86,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Assets\ManualScreenElements\MfuScreenElements\PositionRepeatability.xaml.cs">
+      <DependentUpon>PositionRepeatability.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\MfuScreenElements\ScrewPickUp.xaml.cs">
+      <DependentUpon>ScrewPickUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManualScreenElements\MfuScreenElements\TorqueMSC.xaml.cs">
+      <DependentUpon>TorqueMSC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\Other\EmergencyDisplayer.xaml.cs">
       <DependentUpon>EmergencyDisplayer.xaml</DependentUpon>
     </Compile>
@@ -155,6 +164,18 @@
     <Compile Include="Assets\DialogForms\SampleMessageDialog.xaml.cs">
       <DependentUpon>SampleMessageDialog.xaml</DependentUpon>
     </Compile>
+    <Page Include="Assets\ManualScreenElements\MfuScreenElements\PositionRepeatability.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\MfuScreenElements\ScrewPickUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManualScreenElements\MfuScreenElements\TorqueMSC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\Other\EmergencyDisplayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -358,7 +379,6 @@
     <Resource Include="Pictures\Cam.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\ManualScreenElements\MfuScreenElements\" />
     <Folder Include="Assets\ManualScreenElements\PneumathicScreenElements\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
